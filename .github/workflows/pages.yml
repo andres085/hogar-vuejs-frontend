@@ -1,0 +1,32 @@
+# Publica la demo en GitHub Pages en cada push a main.
+# Es un sitio estático: no hay build, se sube la carpeta tal cual.
+name: Deploy demo a GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:        # permite correrlo a mano desde la pestaña Actions
+
+permissions:
+  contents: read
+  pages: write              # publicar en Pages
+  id-token: write           # deploy-pages se autentica con OIDC
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: .            # .git y .github quedan afuera por defecto
+      - id: deployment
+        uses: actions/deploy-pages@v5

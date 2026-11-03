@@ -1,6 +1,4 @@
-const ICONS = __ICONS__;
-const SCENES = __SCENES__;
-const ART = __ART__;
+/* Lógica de la demo. Depende de assets.js (íconos) y seed.js (datos). */
 let PHOTOS = {};
 try { PHOTOS = JSON.parse(localStorage.getItem('hogar-photos') || '{}') || {}; } catch (e) { PHOTOS = {}; }
 const sceneIdx = id => { const pr = typeof S !== 'undefined' && S.props.find(p => p.id === id); return (pr && pr.sc != null ? pr.sc : id - 1) % SCENES.length; };
