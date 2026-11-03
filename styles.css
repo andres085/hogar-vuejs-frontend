@@ -332,3 +332,22 @@ body{margin:0;background:var(--surface-100);color:var(--ink);font-family:var(--f
 .bar .h-cap{flex:1;min-width:220px}.bar .h-cap .cu{flex-basis:auto}
 @media (max-width:560px){.device{border-radius:0 !important;border-left:0;border-right:0}.stage{display:block;padding:0}.bar .hint{display:none}}
 @media (max-width:760px){.adm{grid-template-columns:1fr;grid-template-rows:auto 1fr}.adm .h-sidenav{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line);padding:8px}.adm .h-sidenav .h-wordmark{display:none}.admbody{padding:16px}}
+
+/* ---------- barra superior: menú hamburguesa en mobile ---------- */
+.bar__menu{display:contents}                 /* escritorio: los hijos se ubican directo en la fila de .bar */
+.bar__actions{display:flex;gap:8px;margin-left:auto}
+.bar__burger,.bar__role{display:none}
+@media (max-width:760px){
+  .bar{flex-wrap:wrap;gap:8px 12px}
+  .bar__role{display:inline-flex;align-items:center;padding:2px 10px;border-radius:var(--radius-pill);background:var(--bamboo-100);color:var(--bamboo-700);font:600 13px/20px var(--font-sans)}
+  .bar__burger{display:grid;place-items:center;margin-left:auto;min-width:44px;min-height:44px;border:0;border-radius:var(--radius-md);background:none;color:var(--ink);cursor:pointer}
+  .bar__burger:focus-visible{outline:3px solid var(--focus-ring);outline-offset:2px}
+  .bar__menu{display:none;flex-basis:100%;flex-direction:column;gap:12px;padding:4px 0 8px}
+  .bar.open .bar__menu{display:flex}
+  .bar.open .bar__burger{background:var(--surface-200)}
+  .bar .rtabs{flex-direction:column;border-radius:var(--radius-md);overflow:visible}
+  .bar .rtab{text-align:left;min-height:44px;padding:10px 14px;border-radius:var(--radius-md)}
+  .bar .h-cap{min-width:0}
+  .bar__actions{margin-left:0}
+  .bar__actions .h-btn{flex:1}
+}

@@ -348,6 +348,7 @@ function render(keepScroll=true){
   const d = sc[S.screen]();
   const y = window.scrollY; const same = keepScroll && lastScreen === S.screen; lastScreen = S.screen;
   const role = S.role;
+  document.getElementById('barrole').textContent = (ROLES.find(([k])=>k===role)||[])[1] || '';
   document.getElementById('tabs').innerHTML = ROLES.map(([k,l])=>`<button class="rtab${role===k?' on':''}" data-act="role" data-v="${k}" ${role===k?'aria-current="true"':''}>${l}</button>`).join('');
   const dev = document.getElementById('device');
   dev.className = 'device' + (d.admin?' wide':'');
@@ -449,3 +450,13 @@ const themeBtn = document.getElementById('theme');
 function applyTheme(){ document.documentElement.setAttribute('data-theme', theme); themeBtn.textContent = theme === 'dark' ? 'Tema oscuro' : 'Tema claro'; themeBtn.setAttribute('aria-pressed', theme === 'dark'); }
 themeBtn.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('hogar-theme', theme); } catch (e) {} applyTheme(); });
 applyTheme();
+
+/* menú hamburguesa (mobile): estado solo visual, no se guarda */
+const bar = document.getElementById('bar'), burger = document.getElementById('burger');
+function setMenu(open){ bar.classList.toggle('open', open); burger.setAttribute('aria-expanded', open); burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú'); }
+burger.addEventListener('click', () => setMenu(!bar.classList.contains('open')));
+document.addEventListener('click', e => {
+  if (!bar.classList.contains('open')) return;
+  if (e.target.closest('.rtab, #reset') || !bar.contains(e.target)) setMenu(false);   // eligió un rol, reinició o tocó afuera
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && bar.classList.contains('open')) { setMenu(false); burger.focus(); } });

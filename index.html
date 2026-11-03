@@ -12,7 +12,23 @@
 </head>
 <body>
 <div class="h-root">
-<header class="bar"><span class="h-wordmark">Hogar</span><nav class="rtabs" id="tabs" aria-label="Vista por rol"></nav><div id="cap" class="h-cap" title="Demo con datos de ejemplo. Lo que hagas como inquilino aparece en el panel del propietario y en el CRM."></div><button class="h-btn h-btn--secondary h-btn--sm rst" id="theme">Tema claro</button><button class="h-btn h-btn--secondary h-btn--sm" id="reset">Reiniciar demo</button></header>
+<header class="bar" id="bar">
+  <span class="h-wordmark">Hogar</span>
+  <span class="bar__role" id="barrole"></span>
+  <!-- Solo en mobile: abre/cierra el panel con roles y acciones -->
+  <button class="bar__burger" id="burger" aria-expanded="false" aria-controls="barmenu" aria-label="Abrir menú">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+  </button>
+  <!-- En escritorio este contenedor es "transparente" (display:contents) y todo queda en una fila -->
+  <div class="bar__menu" id="barmenu">
+    <nav class="rtabs" id="tabs" aria-label="Vista por rol"></nav>
+    <div id="cap" class="h-cap" title="Demo con datos de ejemplo. Lo que hagas como inquilino aparece en el panel del propietario y en el CRM."></div>
+    <div class="bar__actions">
+      <button class="h-btn h-btn--secondary h-btn--sm" id="theme">Tema claro</button>
+      <button class="h-btn h-btn--secondary h-btn--sm" id="reset">Reiniciar demo</button>
+    </div>
+  </div>
+</header>
 <div class="stage"><div class="stagewrap"><div id="device" class="device"></div></div></div>
 </div>
 <script src="assets.js"></script>
