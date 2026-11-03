@@ -1,0 +1,888 @@
+<title>Hogar Demo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap">
+<style>
+:root{--surface-100:#f5f5f3;--surface-000:#ffffff;--surface-200:#e9e9e6;--line:#dcdcd8;--line-strong:#85857f;--ink:#1c1d1a;--ink-muted:#5a5b56;--bamboo-600:#4a7822;--on-brand:#ffffff;--bamboo-700:#38591a;--bamboo-100:#e3edd2;--bamboo-300:#a8c97a;--earth-500:#8a6a47;--earth-100:#f0e8dc;--earth-700:#68492b;--warn-bg:#f8edcc;--warn-ink:#74500a;--info-bg:#e0ebf5;--info-ink:#244e7a;--danger-bg:#f7e0d9;--danger-ink:#97321e;--danger-600:#a33822;--on-danger:#ffffff;--focus-ring:#1c1d1a;--shadow-card:0 1px 2px rgba(28,29,26,0.08), 0 2px 8px rgba(28,29,26,0.06);--shadow-sheet:0 -4px 24px rgba(28,29,26,0.18);--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--radius-sm:6px;--radius-md:10px;--radius-lg:16px;--radius-xl:24px;--radius-pill:999px;--bp-md:768px;--bp-lg:1100px;--tap-min:44px;--nav-h:64px;--content-max:1120px;--font-display:"Fraunces", Georgia, "Times New Roman", serif;--font-sans:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--surface-100:#141413;--surface-000:#1c1c1a;--surface-200:#272725;--line:#353533;--line-strong:#84847e;--ink:#eeeeeb;--ink-muted:#ababa5;--bamboo-600:#9cc667;--on-brand:#141413;--bamboo-700:#b4da86;--bamboo-100:#26341b;--bamboo-300:#4d6e2c;--earth-500:#c4a27d;--earth-100:#33281c;--earth-700:#e0c4a1;--warn-bg:#3a2f10;--warn-ink:#f0cd74;--info-bg:#17283a;--info-ink:#a3c8ee;--danger-bg:#3b1c15;--danger-ink:#f4a898;--danger-600:#e8917f;--on-danger:#141413;--focus-ring:#eeeeeb;--shadow-card:0 1px 2px rgba(0,0,0,0.5);--shadow-sheet:0 -4px 24px rgba(0,0,0,0.6);color-scheme:dark}}
+:root[data-theme="dark"]{--surface-100:#141413;--surface-000:#1c1c1a;--surface-200:#272725;--line:#353533;--line-strong:#84847e;--ink:#eeeeeb;--ink-muted:#ababa5;--bamboo-600:#9cc667;--on-brand:#141413;--bamboo-700:#b4da86;--bamboo-100:#26341b;--bamboo-300:#4d6e2c;--earth-500:#c4a27d;--earth-100:#33281c;--earth-700:#e0c4a1;--warn-bg:#3a2f10;--warn-ink:#f0cd74;--info-bg:#17283a;--info-ink:#a3c8ee;--danger-bg:#3b1c15;--danger-ink:#f4a898;--danger-600:#e8917f;--on-danger:#141413;--focus-ring:#eeeeeb;--shadow-card:0 1px 2px rgba(0,0,0,0.5);--shadow-sheet:0 -4px 24px rgba(0,0,0,0.6);color-scheme:dark}
+.display-lg{font-family:var(--font-display);font-size:40px;line-height:46px;font-weight:600;margin:0}.display-md{font-family:var(--font-display);font-size:32px;line-height:38px;font-weight:600;margin:0}.display-sm{font-family:var(--font-display);font-size:28px;line-height:34px;font-weight:600;margin:0}.score{font-family:var(--font-display);font-size:56px;line-height:56px;font-weight:600;margin:0}.title{font-family:var(--font-sans);font-size:20px;line-height:28px;font-weight:600;margin:0}.subtitle{font-family:var(--font-sans);font-size:18px;line-height:24px;font-weight:600;margin:0}.body{font-family:var(--font-sans);font-size:16px;line-height:24px;font-weight:400;margin:0}.body-sm{font-family:var(--font-sans);font-size:14px;line-height:20px;font-weight:400;margin:0}.label{font-family:var(--font-sans);font-size:14px;line-height:20px;font-weight:600;margin:0}.caption{font-family:var(--font-sans);font-size:12px;line-height:16px;font-weight:500;margin:0}
+
+
+.h-root{font-family:var(--font-sans);color:var(--ink);font-size:16px;line-height:24px;-webkit-font-smoothing:antialiased}
+.h-root *,.h-root *::before,.h-root *::after{box-sizing:border-box}
+.h-root svg.ic{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.h-stage{background:var(--surface-100);padding:var(--space-5)}
+.h-row{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center}
+.h-col{display:flex;flex-direction:column;gap:var(--space-3)}
+.h-spec{font:500 12px/16px var(--font-sans);color:var(--ink-muted);margin:0 0 var(--space-2)}
+.h-root a{color:var(--bamboo-700)}
+.h-root p{margin:0}.h-root h1,.h-root h2,.h-root h3{margin:0}
+.h-wordmark{font:600 24px/28px var(--font-display);color:var(--bamboo-700);letter-spacing:-.01em}
+
+/* Button */
+.h-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);min-height:var(--tap-min);padding:0 var(--space-5);border:1px solid transparent;border-radius:var(--radius-md);font:600 16px/24px var(--font-sans);text-decoration:none;cursor:pointer;background:none;color:inherit}
+.h-btn--primary{background:var(--bamboo-600);color:var(--on-brand)}
+.h-btn--primary:hover{background:var(--bamboo-700)}
+.h-root a.h-btn--primary{color:var(--on-brand)}
+.h-btn--secondary{background:var(--surface-000);color:var(--ink);border-color:var(--line-strong)}
+.h-btn--ghost{color:var(--bamboo-700);padding:0 var(--space-3)}
+.h-btn--danger{background:var(--danger-600);color:var(--on-danger)}
+.h-btn--block{display:flex;width:100%}
+.h-btn--sm{min-height:36px;padding:0 var(--space-3);font-size:14px;line-height:20px}
+.h-btn--disabled,.h-btn[disabled]{background:var(--surface-200);color:var(--ink-muted);border-color:var(--line);cursor:not-allowed}
+.h-btn:focus-visible,.h-input:focus-visible,.h-focus{outline:3px solid var(--focus-ring);outline-offset:2px}
+
+/* Field */
+.h-field{display:flex;flex-direction:column;gap:6px}
+.h-field__label{font:600 14px/20px var(--font-sans)}
+.h-input{min-height:48px;padding:0 14px;border:1px solid var(--line-strong);border-radius:var(--radius-md);background:var(--surface-000);color:var(--ink);font:400 16px/24px var(--font-sans);display:flex;align-items:center;gap:var(--space-2);width:100%}
+.h-input--area{align-items:flex-start;padding:12px 14px;min-height:96px}
+.h-input--error{border:2px solid var(--danger-ink)}
+.h-input .h-pre{color:var(--ink-muted)}
+.h-input .h-end{margin-left:auto;color:var(--ink-muted);display:flex}
+.h-help{font:400 14px/20px var(--font-sans);color:var(--ink-muted)}
+.h-help--error{color:var(--danger-ink)}
+.h-choice{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid var(--line-strong);border-radius:var(--radius-md);background:var(--surface-000)}
+.h-choice--on{border:2px solid var(--bamboo-600);padding:13px;background:var(--bamboo-100)}
+.h-choice__t{font:600 16px/24px var(--font-sans)}
+.h-choice__d{font:400 14px/20px var(--font-sans);color:var(--ink-muted)}
+.h-choice--on .h-choice__d{color:var(--ink)}
+.h-radio{width:20px;height:20px;border:2px solid var(--line-strong);border-radius:50%;flex:none;margin-top:2px;display:grid;place-items:center;background:var(--surface-000)}
+.h-choice--on .h-radio{border-color:var(--bamboo-600)}
+.h-choice--on .h-radio::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--bamboo-600)}
+.h-checkrow{display:flex;gap:12px;align-items:flex-start;font:400 14px/20px var(--font-sans)}
+.h-checkbox{width:22px;height:22px;border:2px solid var(--line-strong);border-radius:6px;flex:none;display:grid;place-items:center;background:var(--surface-000);color:var(--on-brand)}
+.h-checkbox--on{background:var(--bamboo-600);border-color:var(--bamboo-600)}
+.h-checkbox svg.ic{width:14px;height:14px;stroke-width:3}
+.h-switch{display:block;width:44px;height:26px;border-radius:var(--radius-pill);background:var(--line-strong);position:relative;flex:none}
+.h-switch::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--surface-000)}
+.h-switch--on{background:var(--bamboo-600)}.h-switch--on::after{left:21px}
+.h-drop{border:2px dashed var(--line-strong);border-radius:var(--radius-lg);padding:20px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--space-2);background:var(--surface-000)}
+.h-drop svg.ic{width:28px;height:28px;color:var(--bamboo-700)}
+.h-file{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--surface-000)}
+.h-file__i{width:40px;height:40px;border-radius:var(--radius-sm);background:var(--bamboo-100);color:var(--bamboo-700);display:grid;place-items:center;flex:none}
+.h-file__b{flex:1;min-width:0}
+.h-file__t{font:600 14px/20px var(--font-sans)}
+.h-file__d{font:400 12px/16px var(--font-sans);color:var(--ink-muted)}
+.h-file--error{border:2px solid var(--danger-ink);padding:11px 13px}
+.h-file--error .h-file__i{background:var(--danger-bg);color:var(--danger-ink)}
+
+/* Badge */
+.h-badge{display:inline-flex;align-items:center;gap:6px;padding:2px 10px;border-radius:var(--radius-pill);font:600 12px/20px var(--font-sans);white-space:nowrap;max-width:100%}
+.h-badge svg.ic{width:14px;height:14px;stroke-width:2.25}
+.h-badge--ok{background:var(--bamboo-100);color:var(--bamboo-700)}
+.h-badge--warn{background:var(--warn-bg);color:var(--warn-ink)}
+.h-badge--info{background:var(--info-bg);color:var(--info-ink)}
+.h-badge--danger{background:var(--danger-bg);color:var(--danger-ink)}
+.h-badge--neutral{background:var(--surface-200);color:var(--ink)}
+.h-badge--earth{background:var(--earth-100);color:var(--earth-700)}
+
+/* Banner */
+.h-banner{display:flex;gap:12px;padding:12px 14px;border-radius:var(--radius-md);font:400 14px/20px var(--font-sans)}
+.h-banner svg.ic{margin-top:1px}
+.h-banner b{display:block;font-weight:600}
+.h-banner--warn{background:var(--warn-bg);color:var(--warn-ink)}
+.h-banner--info{background:var(--info-bg);color:var(--info-ink)}
+.h-banner--danger{background:var(--danger-bg);color:var(--danger-ink)}
+.h-banner--ok{background:var(--bamboo-100);color:var(--bamboo-700)}
+
+/* Card, list */
+.h-card{background:var(--surface-000);border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--space-4)}
+.h-card--flat{padding:0;overflow:hidden}
+.h-sec{font:600 14px/20px var(--font-sans);color:var(--ink-muted);text-transform:none;margin:var(--space-2) 0 0}
+.h-li{display:flex;align-items:center;gap:12px;padding:12px var(--space-4);border-top:1px solid var(--line)}
+.h-li:first-child{border-top:0}
+.h-li__b{flex:1;min-width:0}
+.h-li__t{font:600 16px/22px var(--font-sans)}
+.h-li__d{font:400 14px/20px var(--font-sans);color:var(--ink-muted)}
+.h-tick{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex:none;background:var(--bamboo-100);color:var(--bamboo-700)}
+.h-tick svg.ic{width:16px;height:16px;stroke-width:2.5}
+.h-tick--todo{background:var(--surface-200);color:var(--ink-muted)}
+.h-tick--warn{background:var(--warn-bg);color:var(--warn-ink)}
+.h-seg{display:flex;gap:4px;padding:4px;border-radius:var(--radius-pill);background:var(--surface-200)}
+.h-seg span{flex:1;text-align:center;padding:6px 8px;border-radius:var(--radius-pill);font:600 14px/20px var(--font-sans);color:var(--ink-muted)}
+.h-seg .on{background:var(--surface-000);color:var(--ink);box-shadow:var(--shadow-card)}
+.h-chips{display:flex;gap:8px;flex-wrap:wrap}
+.h-chip{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border:1px solid var(--line-strong);border-radius:var(--radius-pill);background:var(--surface-000);font:600 14px/20px var(--font-sans)}
+.h-chip--on{background:var(--bamboo-100);border-color:var(--bamboo-600);color:var(--bamboo-700)}
+.h-chip svg.ic{width:16px;height:16px}
+
+/* Score */
+.h-ring{position:relative;flex:none}
+.h-ring__track{fill:none;stroke:var(--surface-200);stroke-width:10}
+.h-ring__val{fill:none;stroke:var(--bamboo-600);stroke-width:10;stroke-linecap:round}
+.h-ring__txt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.h-ring--sm .h-ring__txt .score{font-size:22px;line-height:24px}
+.h-ring--sm .h-ring__txt .caption{display:none}
+.h-ring--sm .h-ring__track,.h-ring--sm .h-ring__val{stroke-width:12}
+.h-bar{height:8px;border-radius:var(--radius-pill);background:var(--surface-200);overflow:hidden}
+.h-bar i{display:block;height:100%;border-radius:var(--radius-pill);background:var(--bamboo-600)}
+.h-factor{display:flex;flex-direction:column;gap:6px;padding:12px 0;border-top:1px solid var(--line)}
+.h-factor:first-child{border-top:0}
+.h-factor__h{display:flex;justify-content:space-between;gap:8px;font:600 14px/20px var(--font-sans)}
+.h-factor__h span:last-child{color:var(--ink-muted);font-weight:500}
+.h-tip{display:flex;gap:12px;align-items:flex-start;font:400 14px/20px var(--font-sans)}
+.h-tip svg.ic{color:var(--bamboo-700);margin-top:1px}
+
+/* Property / candidate */
+.h-photo{background:var(--surface-200);color:var(--ink-muted);display:grid;place-items:center;aspect-ratio:16/9;border-radius:var(--radius-md)}
+.h-photo svg.ic{width:32px;height:32px}
+.h-photo{overflow:hidden}
+.h-photo svg.scene{display:block;width:100%;height:100%}
+.h-prop{display:flex;flex-direction:column;gap:12px;padding:12px;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--surface-000)}
+.h-prop--row{flex-direction:row;align-items:center}
+.h-prop--row .h-photo{width:64px;aspect-ratio:1;flex:none}
+.h-prop--row .h-photo svg.ic{width:24px;height:24px}
+.h-price{font:600 20px/28px var(--font-sans)}
+.h-price small{font:400 14px/20px var(--font-sans);color:var(--ink-muted)}
+.h-meta{display:flex;gap:12px;flex-wrap:wrap;font:400 14px/20px var(--font-sans);color:var(--ink-muted)}
+.h-meta span{display:inline-flex;gap:4px;align-items:center}
+.h-meta svg.ic{width:16px;height:16px}
+.h-cand{display:flex;gap:12px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--surface-000)}
+.h-cand__rank{font:600 14px/20px var(--font-sans);color:var(--ink-muted);width:18px;text-align:center}
+.h-avatar{width:44px;height:44px;border-radius:50%;background:var(--earth-100);color:var(--earth-700);display:grid;place-items:center;font:600 16px/20px var(--font-sans);flex:none}
+.h-cand__b{flex:1;min-width:0;overflow:hidden;display:flex;flex-direction:column;gap:4px}
+.h-cand__t{font:600 16px/22px var(--font-sans)}
+.h-cand__d{font:400 12px/16px var(--font-sans);color:var(--ink-muted)}
+.h-datarow{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:12px var(--space-4);border-top:1px solid var(--line)}
+.h-datarow:first-child{border-top:0}
+.h-datarow__k{font:400 14px/20px var(--font-sans);color:var(--ink-muted)}
+.h-datarow__v{font:600 16px/22px var(--font-sans);text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+
+/* Stepper */
+.h-steps{display:flex;flex-direction:column;gap:8px}
+.h-steps__bar{display:flex;gap:6px}
+.h-steps__bar i{flex:1;height:6px;border-radius:var(--radius-pill);background:var(--surface-200)}
+.h-steps__bar i.on{background:var(--bamboo-600)}
+.h-steps__t{font:600 14px/20px var(--font-sans);color:var(--ink-muted)}
+
+/* Stats and table */
+.h-stat{background:var(--surface-000);border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--space-4);display:flex;flex-direction:column;gap:4px}
+.h-stat__k{font:500 14px/20px var(--font-sans);color:var(--ink-muted)}
+.h-stat__v{font:600 32px/38px var(--font-display);color:var(--ink)}
+.h-stat__d{font:500 12px/16px var(--font-sans);color:var(--ink-muted)}
+.h-grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3)}
+.h-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4)}
+.h-table{width:100%;border-collapse:collapse;font:400 14px/20px var(--font-sans);background:var(--surface-000)}
+.h-table th{text-align:left;font:600 12px/16px var(--font-sans);color:var(--ink-muted);padding:10px var(--space-4);border-bottom:1px solid var(--line-strong);background:var(--surface-100)}
+.h-table td{padding:12px var(--space-4);border-bottom:1px solid var(--line)}
+.h-table td.num,.h-table th.num{text-align:right;font-variant-numeric:tabular-nums}
+.h-tablewrap{border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden}
+
+/* Shell, navigation */
+.h-top{display:flex;align-items:center;gap:var(--space-2);min-height:56px;padding:0 var(--space-4);background:var(--surface-000);border-bottom:1px solid var(--line)}
+.h-top__t{font:600 18px/24px var(--font-sans);flex:1}
+.h-top .ic{flex:none}
+.h-bottomnav{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;min-height:var(--nav-h);background:var(--surface-000);border-top:1px solid var(--line)}
+.h-bottomnav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font:600 12px/16px var(--font-sans);color:var(--ink-muted);text-decoration:none;padding:6px 0}
+.h-root .h-bottomnav a{color:var(--ink-muted)}
+.h-bottomnav a span.pill{display:grid;place-items:center;width:56px;height:30px;border-radius:var(--radius-pill)}
+.h-root .h-bottomnav a.on{color:var(--bamboo-700)}
+.h-bottomnav a.on span.pill{background:var(--bamboo-100)}
+.h-sidenav{display:flex;flex-direction:column;gap:4px;padding:var(--space-4);background:var(--surface-000);border-right:1px solid var(--line)}
+.h-sidenav a{display:flex;align-items:center;gap:12px;min-height:var(--tap-min);padding:0 12px;border-radius:var(--radius-md);font:600 15px/20px var(--font-sans);text-decoration:none}
+.h-root .h-sidenav a{color:var(--ink)}
+.h-root .h-sidenav a.on{background:var(--bamboo-100);color:var(--bamboo-700)}
+.h-shell{display:grid;grid-template-columns:1fr;min-height:100vh}
+.h-shell__nav{display:none}.h-shell__tabs{display:grid;position:sticky;bottom:0}
+@media (min-width:768px){.h-shell{grid-template-columns:240px 1fr}.h-shell__nav{display:flex}.h-shell__tabs{display:none}}
+
+/* Mock frames used by the view galleries */
+.h-gallery{display:flex;flex-wrap:wrap;gap:var(--space-6);padding:var(--space-5);background:var(--surface-200);align-items:flex-start}
+.h-view{margin:0;width:340px;display:flex;flex-direction:column;gap:10px}
+.h-cap{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font:600 14px/20px var(--font-sans)}
+.h-cap .id{background:var(--ink);color:var(--surface-000);border-radius:var(--radius-sm);padding:0 8px;font-size:12px;line-height:20px}
+.h-cap .cu{font-weight:500;font-size:12px;color:var(--ink-muted);flex-basis:100%}
+.h-phone{position:relative;display:flex;flex-direction:column;min-height:660px;border:1px solid var(--line-strong);border-radius:28px;overflow:hidden;background:var(--surface-100)}
+.h-body{flex:1;display:flex;flex-direction:column;gap:var(--space-4);padding:var(--space-4)}
+.h-cta{display:flex;flex-direction:column;gap:8px;padding:12px var(--space-4);background:var(--surface-000);border-top:1px solid var(--line)}
+.h-scrim{position:absolute;inset:0;background:rgba(20,20,19,.55)}
+.h-sheet{position:absolute;left:0;right:0;bottom:0;background:var(--surface-000);border-radius:var(--radius-xl) var(--radius-xl) 0 0;padding:var(--space-4) var(--space-4) var(--space-5);display:flex;flex-direction:column;gap:var(--space-3);box-shadow:var(--shadow-sheet)}
+.h-sheet__grab{width:40px;height:4px;border-radius:2px;background:var(--line-strong);align-self:center}
+.h-desk{width:1100px;margin:0;display:flex;flex-direction:column;gap:10px}
+.h-desk__f{display:grid;grid-template-columns:230px 1fr;border:1px solid var(--line-strong);border-radius:var(--radius-lg);overflow:hidden;background:var(--surface-100);min-height:520px}
+.h-desk__m{display:flex;flex-direction:column;gap:var(--space-4);padding:var(--space-5)}
+.h-desk__h{display:flex;justify-content:space-between;align-items:center;gap:var(--space-4)}
+
+
+:where(.h-plain){background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;text-align:inherit;cursor:pointer}
+.h-card-btn{width:100%;text-align:left;cursor:pointer}
+.h-link{color:var(--bamboo-700);font:600 14px/20px var(--font-sans);text-align:left;text-decoration:underline}
+.h-bare{border:0;outline:0;background:transparent;font:inherit;color:inherit;flex:1;min-width:0;width:100%;padding:0}
+.h-bare option{color:var(--ink);background:var(--surface-000)}
+.h-input:focus-within{outline:3px solid var(--focus-ring);outline-offset:2px}
+.h-root button:focus-visible,.h-root a:focus-visible{outline:3px solid var(--focus-ring);outline-offset:2px;border-radius:6px}
+.h-iconbtn{min-width:44px;min-height:44px;display:grid;place-items:center;margin-left:-10px}
+.h-seg button{flex:1;text-align:center;padding:6px 8px;border-radius:var(--radius-pill);font:600 14px/20px var(--font-sans);color:var(--ink-muted)}
+.h-seg button.on{background:var(--surface-000);color:var(--ink);box-shadow:var(--shadow-card)}
+.h-bottomnav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font:600 12px/16px var(--font-sans);color:var(--ink-muted);padding:6px 0;min-height:var(--tap-min)}
+.h-bottomnav button .pill{display:grid;place-items:center;width:56px;height:30px;border-radius:var(--radius-pill)}
+.h-bottomnav button.on{color:var(--bamboo-700)}.h-bottomnav button.on .pill{background:var(--bamboo-100)}
+.h-sidenav .navb{display:flex;align-items:center;gap:12px;min-height:var(--tap-min);padding:0 12px;border-radius:var(--radius-md);font:600 15px/20px var(--font-sans);color:var(--ink);width:100%;white-space:nowrap}
+.h-sidenav .navb.on{background:var(--bamboo-100);color:var(--bamboo-700)}
+.h-li.h-plain{width:100%}
+.h-spin{width:18px;height:18px;border-radius:50%;border:3px solid var(--bamboo-300);border-top-color:var(--bamboo-700);animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.h-spin{animation:none}}
+body{margin:0;background:var(--surface-100);color:var(--ink);font-family:var(--font-sans)}
+.h-root{display:block}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:var(--surface-000);border-bottom:1px solid var(--line)}
+.bar .h-wordmark{margin-right:4px}
+.rtabs{display:flex;gap:4px;padding:4px;border-radius:var(--radius-pill);background:var(--surface-200);overflow-x:auto;max-width:100%}
+.rtab{border:0;background:none;color:var(--ink-muted);font:600 14px/20px var(--font-sans);padding:6px 14px;border-radius:var(--radius-pill);cursor:pointer;white-space:nowrap;min-height:36px}
+.rtab.on{background:var(--bamboo-600);color:var(--on-brand)}
+.bar .hint{font:400 12px/16px var(--font-sans);color:var(--ink-muted);flex:1;min-width:200px}
+.bar .rst{margin-left:auto}
+.stage{display:block;padding:0}
+.stagewrap{width:100%}
+.device{position:relative;width:100%;min-height:calc(100vh - 64px);background:var(--surface-100)}
+.app{display:block;min-height:calc(100vh - 64px)}
+.appmain{display:flex;flex-direction:column;min-height:calc(100vh - 64px);min-width:0}
+.side{display:none}
+.h-cta>*{width:100%;max-width:560px;align-self:center}
+@media (min-width:768px){
+ .app.has-side{display:grid;grid-template-columns:240px minmax(0,1fr)}
+ .app.has-side .side{display:flex;position:sticky;top:0;align-self:start;height:100dvh}
+ .app.has-side .h-bottomnav{display:none}
+ .app.has-side .h-top .h-wordmark{display:none}
+ .h-body[data-w=narrow]{width:100%;max-width:600px;margin-inline:auto;padding:var(--space-5)}
+ .h-body[data-w=wide]{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--space-4);align-content:start;padding:var(--space-5)}
+ .h-body[data-w=wide]>:where(.h-seg,.h-chips,.h-sec,.h-help,.h-grid2,.h-banner,.h-row,.h-input,.h-card){grid-column:1/-1}
+ .h-body[data-w=wide] .h-grid2{grid-template-columns:repeat(4,1fr)}
+ .h-body[data-w=wide]>.h-seg{max-width:420px}
+}
+.scroll{flex:1}
+.app .h-top{position:sticky;top:0;z-index:3}
+.dock{position:sticky;bottom:0;z-index:3;margin-top:auto}
+.h-scrim{position:fixed;inset:0;z-index:10}
+.h-sheet{position:fixed;left:50%;transform:translateX(-50%);width:min(430px,100%);bottom:0;z-index:11;padding-bottom:max(24px,env(safe-area-inset-bottom,0px))}
+.h-photo{overflow:hidden;padding:0}
+.h-photo svg.scene{display:block;width:100%;height:100%}
+.h-photo img.realph{display:block;width:100%;height:100%;object-fit:cover}
+.vh{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
+.h-filebtn{position:relative;cursor:pointer}
+.h-filebtn:focus-within{outline:3px solid var(--focus-ring);outline-offset:2px}
+.adm{display:grid;grid-template-columns:240px minmax(0,1fr);min-height:calc(100vh - 64px)}
+@media (min-width:761px){.adm .h-sidenav{position:sticky;top:0;align-self:start;height:100dvh}}
+.admbody{flex:1;padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-4);min-width:0}
+.admbody .h-grid4{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.h-scrollx{overflow-x:auto}
+.h-cta--inline{background:none;border:0;padding:0;margin-top:var(--space-2)}
+.h-cta--inline>*{max-width:none}
+
+.ld-wrap{width:100%;max-width:var(--content-max);margin-inline:auto;padding-inline:var(--space-4)}
+.ld-top{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);min-height:56px;padding:6px var(--space-4);background:var(--surface-000);border-bottom:1px solid var(--line)}
+.ld-links{display:none;gap:var(--space-4)}
+.ld-links a,.ld-foot a{color:var(--ink);font:600 14px/20px var(--font-sans);text-decoration:none}
+.ld-links a:hover,.ld-foot a:hover{color:var(--bamboo-700);text-decoration:underline}
+.ld-acts{display:flex;gap:var(--space-2);margin-left:auto}
+.ld-acts .h-btn{width:auto}
+.ld-hero{padding-block:var(--space-6) var(--space-5)}
+.ld-herogrid{display:grid;gap:var(--space-5)}
+.ld-copy{display:flex;flex-direction:column;gap:var(--space-3);align-items:flex-start}
+.ld-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--radius-pill);background:var(--bamboo-100);color:var(--bamboo-700);font:600 13px/18px var(--font-sans)}
+.ld-eyebrow .ic{width:16px;height:16px}
+.ld-h1{font-size:clamp(32px,6vw,52px);line-height:1.08}
+.ld-lead{margin:0;font:400 17px/26px var(--font-sans);color:var(--ink-muted);max-width:56ch}
+.ld-mut{color:var(--ink-muted);margin:2px 0 0}
+.ld-cta{display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:var(--space-2)}
+.ld-cta .h-btn{width:auto}
+.ld-ticks{list-style:none;margin:var(--space-2) 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px var(--space-4);font:500 14px/20px var(--font-sans);color:var(--ink-muted)}
+.ld-ticks li{display:inline-flex;align-items:center;gap:6px}.ld-ticks .ic{width:18px;height:18px;color:var(--bamboo-600)}
+.ld-art{position:relative}
+.ld-pic{border-radius:var(--radius-xl);overflow:hidden;background:var(--surface-200);aspect-ratio:4/3;box-shadow:var(--shadow-card)}
+.ld-pic svg.art,.ld-pic img.realph{display:block;width:100%;height:100%;object-fit:cover}
+.ld-pic--sq{aspect-ratio:512/390}
+.ld-chip{position:absolute;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--radius-lg);background:var(--surface-000);box-shadow:var(--shadow-sheet);border:1px solid var(--line)}
+.ld-chip b{display:block;font:600 14px/18px var(--font-sans)}.ld-chip span:not(.h-tick){display:block;font:400 12px/16px var(--font-sans);color:var(--ink-muted)}
+.ld-chip--a{left:12px;bottom:12px}.ld-chip--b{left:12px;top:12px}
+.ld-photo{position:absolute;right:12px;top:12px;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:var(--radius-pill);background:var(--surface-000);border:1px solid var(--line);font:600 12px/16px var(--font-sans);color:var(--ink)}
+.ld-photo .ic{width:14px;height:14px}
+.ld-sec{padding-block:var(--space-6)}
+.ld-alt{background:var(--surface-000);border-block:1px solid var(--line)}
+.ld-kicker{margin:0 0 var(--space-1);font:600 13px/18px var(--font-sans);letter-spacing:.02em;color:var(--bamboo-700);text-transform:uppercase}
+.ld-sec h2{margin-bottom:var(--space-4)}
+.ld-grid4,.ld-grid3{display:grid;gap:var(--space-3);margin-top:var(--space-3)}
+.ld-step{display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4);border-radius:var(--radius-lg);background:var(--surface-000);border:1px solid var(--line)}
+.ld-n{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--bamboo-100);color:var(--bamboo-700);font:600 18px/1 var(--font-display)}
+.ld-split{display:grid;gap:var(--space-5);align-items:center}
+.ld-feats{display:flex;flex-direction:column;gap:var(--space-3);margin-top:var(--space-4)}
+.ld-feat{display:flex;gap:var(--space-3);align-items:flex-start}
+.ld-feat .h-tick{flex:none}
+.ld-demo{display:flex;flex-direction:column;gap:var(--space-3);padding:var(--space-4)}
+.ld-q{border-bottom:1px solid var(--line);padding:var(--space-3) 0}
+.ld-q summary{display:flex;justify-content:space-between;align-items:center;gap:var(--space-3);cursor:pointer;list-style:none;font:600 16px/24px var(--font-sans);min-height:var(--tap-min)}
+.ld-q summary::-webkit-details-marker{display:none}
+.ld-q summary:focus-visible{outline:3px solid var(--focus-ring);outline-offset:2px;border-radius:6px}
+.ld-q[open] summary .ic{transform:rotate(90deg)}
+.ld-q p{padding-bottom:var(--space-2)}
+.ld-narrow{max-width:760px}
+.ld-band{background:var(--bamboo-100);padding-block:var(--space-6)}
+.ld-foot{padding-block:var(--space-5);border-top:1px solid var(--line);background:var(--surface-000)}
+.ld-foot .ld-wrap{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3) var(--space-5)}
+.ld-foot nav{display:flex;gap:var(--space-4)}
+@media (min-width:768px){
+ .ld-links{display:flex}.ld-wrap{padding-inline:var(--space-5)}
+ .ld-herogrid{grid-template-columns:1.05fr 1fr;align-items:center}
+ .ld-hero{padding-block:var(--space-7,56px) var(--space-6)}
+ .ld-grid4{grid-template-columns:repeat(2,1fr)}.ld-grid3{grid-template-columns:repeat(3,1fr)}
+ .ld-split{grid-template-columns:1fr 1fr}.ld-split--rev .ld-pic{order:-1}
+}
+@media (min-width:1100px){.ld-grid4{grid-template-columns:repeat(4,1fr)}.ld-step{flex-direction:column}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.h-onlywide{display:none}
+@media (min-width:768px){.app.has-side .h-onlywide{display:block}}
+.toast{position:fixed;top:12px;left:50%;transform:translateX(-50%);width:min(398px,calc(100% - 32px));background:var(--ink);color:var(--surface-000);padding:12px 16px;border-radius:var(--radius-md);font:600 14px/20px var(--font-sans);box-shadow:var(--shadow-sheet);z-index:20}
+.bar .h-cap{flex:1;min-width:220px}.bar .h-cap .cu{flex-basis:auto}
+@media (max-width:560px){.device{border-radius:0 !important;border-left:0;border-right:0}.stage{display:block;padding:0}.bar .hint{display:none}}
+@media (max-width:760px){.adm{grid-template-columns:1fr;grid-template-rows:auto 1fr}.adm .h-sidenav{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line);padding:8px}.adm .h-sidenav .h-wordmark{display:none}.admbody{padding:16px}}
+
+</style>
+<div class="h-root">
+<header class="bar"><span class="h-wordmark">Hogar</span><nav class="rtabs" id="tabs" aria-label="Vista por rol"></nav><div id="cap" class="h-cap" title="Demo con datos de ejemplo. Lo que hagas como inquilino aparece en el panel del propietario y en el CRM."></div><button class="h-btn h-btn--secondary h-btn--sm rst" id="theme">Tema claro</button><button class="h-btn h-btn--secondary h-btn--sm" id="reset">Reiniciar demo</button></header>
+<div class="stage"><div class="stagewrap"><div id="device" class="device"></div></div></div>
+</div>
+<script>
+/* =====================================================================
+   Datos semilla de la demo.
+   Todo lo que la demo muestra sale de acá + lo que la persona hace.
+   Las fechas son relativas a "hoy" (días atrás) para que la demo no
+   envejezca: "últimos 12 meses" siempre significa los últimos 12 meses.
+   Si cambiás la forma de estos datos, subí SEED_VERSION: así los
+   navegadores que tenían una partida guardada arrancan de cero.
+   ===================================================================== */
+const SEED_VERSION = 2;
+const DAY = 864e5;
+const ago = d => Date.now() - d * DAY;
+
+/* Propiedades de Inmobiliaria Del Sur (la cuenta del propietario en la demo).
+   sc = ilustración: 0 depto, 1 casa, 2 monoambiente, 3 edificio, 4 local, 5 PH */
+const SEED_PROPS = () => [
+  {id:1,sc:0,title:'Depto 2 ambientes con balcón',zone:'Centro',price:780000,feats:['2 amb','48 m²'],status:'active',agent:'Marcos P.',desc:'Luminoso, a una cuadra de la plaza. Cocina separada y balcón al frente.',exp:45000,pets:'No',contract:'24 meses'},
+  {id:2,sc:1,title:'Casa 3 dormitorios con patio',zone:'Zona Norte',price:840000,feats:['3 dorm','110 m²'],status:'active',agent:'Marcos P.',desc:'Patio con parrilla, cochera cubierta y dos baños.',exp:0,pets:'Sí',contract:'24 meses'},
+  {id:3,sc:2,title:'Monoambiente luminoso',zone:'Barrio Sur',price:520000,feats:['1 amb','32 m²'],status:'active',agent:'Sofía R.',desc:'Ideal para una persona, a tres cuadras del centro.',exp:28000,pets:'No',contract:'12 meses'},
+  {id:4,sc:3,title:'Depto 3 ambientes con cochera',zone:'Centro',price:1150000,feats:['3 amb','78 m²'],status:'active',agent:'Sofía R.',desc:'Piso alto, vista despejada y cochera fija.',exp:70000,pets:'No',contract:'24 meses'},
+  {id:5,sc:4,title:'Local con vidriera',zone:'Centro',price:1200000,feats:['60 m²'],status:'paused',agent:'',desc:'Sobre calle comercial.',exp:0,pets:'—',contract:'36 meses'},
+  {id:6,sc:5,title:'PH 2 dormitorios',zone:'Barrio Sur',price:690000,feats:['2 dorm','70 m²'],status:'rented',agent:'Sofía R.',desc:'Patio compartido.',exp:0,pets:'Sí',contract:'24 meses'},
+  {id:7,sc:3,title:'Depto 1 dormitorio a estrenar',zone:'Centro',price:610000,feats:['1 dorm','40 m²'],status:'active',agent:'Marcos P.',desc:'Edificio nuevo con amenities, lavadero común y portero.',exp:52000,pets:'Sí',contract:'24 meses'},
+  {id:8,sc:1,title:'Casa 2 dormitorios con jardín',zone:'Zona Oeste',price:720000,feats:['2 dorm','85 m²'],status:'active',agent:'Sofía R.',desc:'Jardín al fondo, galería techada y calle tranquila.',exp:0,pets:'Sí',contract:'24 meses'},
+  {id:9,sc:5,title:'PH 3 ambientes con terraza',zone:'Barrio Sur',price:850000,feats:['3 amb','82 m²'],status:'active',agent:'Marcos P.',desc:'Sin expensas, terraza propia y entrada independiente.',exp:0,pets:'No',contract:'24 meses'}
+];
+
+/* Postulantes de otras personas, por propiedad. Lucía (la inquilina de la
+   demo) se suma sola cuando se postula. */
+const SEED_CANDS = () => ({
+  1:[{id:'c1',name:'Martín Rojas',score:74,proof:true,income:2400000,sen:4,unv:false,days:'ayer',status:'new'},
+     {id:'c2',name:'Camila Ferreyra',score:66,proof:true,income:2100000,sen:2,unv:true,days:'hace 2 días',status:'new'},
+     {id:'c3',name:'Diego Salas',score:48,proof:false,income:null,sen:1,unv:false,days:'hace 3 días',status:'new'}],
+  2:[{id:'c4',name:'Ana Paz',score:70,proof:true,income:2700000,sen:3,unv:false,days:'hoy',status:'new'},
+     {id:'c5',name:'Julián Ortiz',score:58,proof:true,income:2000000,sen:1,unv:true,days:'ayer',status:'new'}],
+  3:[{id:'c6',name:'Valentina Gómez',score:81,proof:true,income:1900000,sen:5,unv:false,days:'hace 4 días',status:'new'}],
+  4:[], 5:[], 6:[],
+  7:[{id:'c7',name:'Tomás Herrera',score:63,proof:true,income:1750000,sen:2,unv:false,days:'hoy',status:'new'},
+     {id:'c8',name:'Florencia Ruiz',score:41,proof:false,income:null,sen:0,unv:false,days:'hace 2 días',status:'new'}],
+  8:[{id:'c9',name:'Lautaro Díaz',score:69,proof:true,income:2300000,sen:6,unv:false,days:'ayer',status:'discarded'}],
+  9:[]
+});
+
+/* Inmobiliarias piloto. acc = cierres acumulados desde el alta,
+   c12 = cuántos de esos cayeron en los últimos 12 meses. A partir de
+   estos números se generan los cierres con fecha (ver seedClosings). */
+const SEED_AGENCIES = () => [
+  {n:'Inmobiliaria Del Sur',a:'Ana D.',g:3,p:41,s:'Activa',acc:41,c12:11},
+  {n:'Casa Norte Propiedades',a:'Pablo G.',g:2,p:29,s:'Activa',acc:29,c12:8},
+  {n:'Costa Inmuebles',a:'Rocío M.',g:6,p:64,s:'Pausada',acc:64,c12:26},
+  {n:'Hogar Austral',a:'Nicolás T.',g:1,p:7,s:'Baja',acc:2,c12:0}
+];
+
+/* Cierres con fecha, repartidos de forma determinística (siempre iguales).
+   Los de 12 meses caen entre hoy y hace 360 días; el resto, más atrás. */
+function seedClosings(){
+  const out = [];
+  SEED_AGENCIES().forEach((ag, k) => {
+    for (let i = 0; i < ag.c12; i++) out.push({agency:ag.n, at:ago(Math.round(4 + k*3 + i*(355/ag.c12)) % 360), demo:false});
+    for (let i = 0; i < ag.acc - ag.c12; i++) out.push({agency:ag.n, at:ago(380 + i*17 + k*5), demo:false});
+  });
+  return out;
+}
+
+/* Registros por semana (8 semanas, la última es la actual) y totales base
+   del CRM. Lo que se hace en la demo se suma encima. */
+const SEED_METRICS = () => ({
+  weeklySignups:[18,26,31,24,40,38,47,52],
+  tenantShare:.71,
+  passportsComplete:148,
+  applications:421
+});
+
+/* Auditoría OCR: cada documento procesado (ya borrado). fixed = campos que
+   la persona corrigió a mano después de la lectura. */
+const SEED_OCR = () => [
+  {at:ago(1), kind:'DNI', conf:98, fixed:[], st:'ok'},
+  {at:ago(1), kind:'Recibo de sueldo', conf:62, fixed:['Ingreso neto','Empleador'], st:'ok'},
+  {at:ago(2), kind:'Monotributo', conf:91, fixed:['Ingreso neto'], st:'ok'},
+  {at:ago(2), kind:'Recibo de sueldo', conf:55, fixed:['Ingreso neto','Fecha','Empleador'], st:'ok'},
+  {at:ago(3), kind:'DNI', conf:94, fixed:[], st:'ok'},
+  {at:ago(3), kind:'Recibo de sueldo', conf:88, fixed:[], st:'rejected'},
+  {at:ago(4), kind:'Monotributo', conf:67, fixed:['Ingreso neto'], st:'ok'},
+  {at:ago(5), kind:'DNI', conf:96, fixed:[], st:'ok'},
+  {at:ago(6), kind:'Recibo de sueldo', conf:83, fixed:['Fecha'], st:'ok'},
+  {at:ago(7), kind:'DNI', conf:71, fixed:['Número de DNI'], st:'ok'}
+];
+
+const ICONS = {"search": "<circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m20 20-3.5-3.5\"/>", "home": "<path d=\"M3 11l9-8 9 8\"/><path d=\"M5 10v10h14V10\"/>", "file": "<path d=\"M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z\"/><path d=\"M14 3v5h5\"/>", "user": "<circle cx=\"12\" cy=\"8\" r=\"4\"/><path d=\"M4 21c0-4 4-6 8-6s8 2 8 6\"/>", "users": "<circle cx=\"9\" cy=\"8\" r=\"3.5\"/><path d=\"M2 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5\"/><path d=\"M16 4.5a3.5 3.5 0 0 1 0 7\"/><path d=\"M18 14.7c2.5.6 4 2.3 4 5.3\"/>", "check": "<path d=\"M5 12.5l4.5 4.5L19 7.5\"/>", "alert": "<path d=\"M12 3l10 18H2z\"/><path d=\"M12 10v5\"/><path d=\"M12 18v.01\"/>", "info": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 11v5\"/><path d=\"M12 8v.01\"/>", "upload": "<path d=\"M12 16V4\"/><path d=\"M7 9l5-5 5 5\"/><path d=\"M4 20h16\"/>", "building": "<path d=\"M4 21V5l8-2v18\"/><path d=\"M12 9h8v12\"/><path d=\"M8 9v.01M8 13v.01M8 17v.01M16 13v.01M16 17v.01\"/>", "chart": "<path d=\"M4 20V10\"/><path d=\"M10 20V4\"/><path d=\"M16 20v-8\"/><path d=\"M22 20H2\"/>", "plus": "<path d=\"M12 5v14M5 12h14\"/>", "clock": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3 2\"/>", "chev": "<path d=\"M9 6l6 6-6 6\"/>", "back": "<path d=\"M15 6l-6 6 6 6\"/>", "shield": "<path d=\"M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z\"/>", "pin": "<path d=\"M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z\"/><circle cx=\"12\" cy=\"10\" r=\"2.5\"/>", "image": "<rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"/><circle cx=\"9\" cy=\"11\" r=\"2\"/><path d=\"M21 16l-5-5-8 8\"/>", "edit": "<path d=\"M4 20h4L19 9l-4-4L4 16z\"/>", "trash": "<path d=\"M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3\"/>", "pause": "<path d=\"M8 5v14M16 5v14\"/>", "x": "<path d=\"M6 6l12 12M18 6L6 18\"/>", "more": "<path d=\"M5 12v.01M12 12v.01M19 12v.01\"/>", "filter": "<path d=\"M4 6h16M7 12h10M10 18h4\"/>", "key": "<circle cx=\"8\" cy=\"15\" r=\"4\"/><path d=\"M11 12l9-9M16 7l3 3\"/>", "eye": "<path d=\"M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/>", "down": "<path d=\"M6 9l6 6 6-6\"/>", "logout": "<path d=\"M9 4H5v16h4\"/><path d=\"M16 8l4 4-4 4M20 12H9\"/>"};
+const SCENES = ["<svg class=\"scene\" viewBox=\"0 0 320 200\" preserveAspectRatio=\"xMidYMid slice\" width=\"100%\" height=\"100%\" role=\"img\" aria-label=\"Ilustración de la propiedad\"><rect x=\"0\" y=\"0\" width=\"320\" height=\"200\" fill=\"#dde6ea\" /><rect x=\"0\" y=\"168\" width=\"320\" height=\"32\" fill=\"#c8c5bb\" /><rect x=\"66\" y=\"26\" width=\"188\" height=\"144\" fill=\"#e9e1d3\" /><rect x=\"66\" y=\"26\" width=\"188\" height=\"10\" fill=\"#b9ad98\" /><rect x=\"84\" y=\"48\" width=\"38\" height=\"36\" fill=\"#86a3b3\" /><rect x=\"84\" y=\"48\" width=\"38\" height=\"36\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><rect x=\"102\" y=\"48\" width=\"2\" height=\"36\" fill=\"#fbf8f2\" /><rect x=\"140\" y=\"48\" width=\"38\" height=\"36\" fill=\"#86a3b3\" /><rect x=\"140\" y=\"48\" width=\"38\" height=\"36\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><rect x=\"158\" y=\"48\" width=\"2\" height=\"36\" fill=\"#fbf8f2\" /><rect x=\"196\" y=\"48\" width=\"38\" height=\"36\" fill=\"#86a3b3\" /><rect x=\"196\" y=\"48\" width=\"38\" height=\"36\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><rect x=\"214\" y=\"48\" width=\"2\" height=\"36\" fill=\"#fbf8f2\" /><rect x=\"84\" y=\"100\" width=\"38\" height=\"36\" fill=\"#86a3b3\" /><rect x=\"84\" y=\"100\" width=\"38\" height=\"36\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><rect x=\"102\" y=\"100\" width=\"2\" height=\"36\" fill=\"#fbf8f2\" /><rect x=\"140\" y=\"100\" width=\"38\" height=\"36\" fill=\"#86a3b3\" /><rect x=\"140\" y=\"100\" width=\"38\" height=\"36\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><rect x=\"158\" y=\"100\" width=\"2\" height=\"36\" fill=\"#fbf8f2\" /><rect x=\"196\" y=\"100\" width=\"38\" height=\"36\" fill=\"#86a3b3\" /><rect x=\"196\" y=\"100\" width=\"38\" height=\"36\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><rect x=\"214\" y=\"100\" width=\"2\" height=\"36\" fill=\"#fbf8f2\" /><rect x=\"138\" y=\"98\" width=\"44\" height=\"4\" fill=\"#5b5f5a\" /><rect x=\"142\" y=\"86\" width=\"2\" height=\"14\" fill=\"#5b5f5a\" /><rect x=\"150\" y=\"86\" width=\"2\" height=\"14\" fill=\"#5b5f5a\" /><rect x=\"158\" y=\"86\" width=\"2\" height=\"14\" fill=\"#5b5f5a\" /><rect x=\"166\" y=\"86\" width=\"2\" height=\"14\" fill=\"#5b5f5a\" /><rect x=\"174\" y=\"86\" width=\"2\" height=\"14\" fill=\"#5b5f5a\" /><rect x=\"138\" y=\"86\" width=\"44\" height=\"3\" fill=\"#5b5f5a\" /><rect x=\"146\" y=\"130\" width=\"28\" height=\"40\" fill=\"#7a5a40\" /><circle cx=\"168\" cy=\"152\" r=\"2\" fill=\"#e9e1d3\"/><rect x=\"27\" y=\"118\" width=\"6\" height=\"46\" fill=\"#6b4a33\" /><circle cx=\"30\" cy=\"112\" r=\"26\" fill=\"#76a04c\"/><circle cx=\"16\" cy=\"124\" r=\"16\" fill=\"#76a04c\"/><circle cx=\"44\" cy=\"124\" r=\"16\" fill=\"#76a04c\"/><rect x=\"289.6\" y=\"128\" width=\"4.800000000000001\" height=\"36.800000000000004\" fill=\"#6b4a33\" /><circle cx=\"292\" cy=\"123.2\" r=\"20.8\" fill=\"#8aae5e\"/><circle cx=\"280.8\" cy=\"132.8\" r=\"12.8\" fill=\"#8aae5e\"/><circle cx=\"303.2\" cy=\"132.8\" r=\"12.8\" fill=\"#8aae5e\"/></svg>", "<svg class=\"scene\" viewBox=\"0 0 320 200\" preserveAspectRatio=\"xMidYMid slice\" width=\"100%\" height=\"100%\" role=\"img\" aria-label=\"Ilustración de la propiedad\"><rect x=\"0\" y=\"0\" width=\"320\" height=\"200\" fill=\"#e4ece9\" /><rect x=\"0\" y=\"140\" width=\"320\" height=\"60\" fill=\"#a2c277\" /><rect x=\"86\" y=\"86\" width=\"148\" height=\"72\" fill=\"#f1e8d8\" /><polygon points=\"76,92 160,38 244,92\" fill=\"#a65f3e\"/><rect x=\"196\" y=\"44\" width=\"14\" height=\"26\" fill=\"#8d5336\" /><rect x=\"150\" y=\"114\" width=\"22\" height=\"44\" fill=\"#6b4a33\" /><rect x=\"102\" y=\"106\" width=\"30\" height=\"26\" fill=\"#8fb0c0\" /><rect x=\"102\" y=\"106\" width=\"30\" height=\"26\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><rect x=\"188\" y=\"106\" width=\"30\" height=\"26\" fill=\"#8fb0c0\" /><rect x=\"188\" y=\"106\" width=\"30\" height=\"26\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><polygon points=\"150,158 172,158 190,200 132,200\" fill=\"#dcd1ba\"/><rect x=\"6\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"28\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"50\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"72\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"94\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"116\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"138\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"160\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"182\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"204\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"226\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"248\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"270\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"292\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"0\" y=\"176\" width=\"320\" height=\"4\" fill=\"#f6f1e6\" /><rect x=\"268.7\" y=\"98\" width=\"6.6000000000000005\" height=\"50.6\" fill=\"#6b4a33\" /><circle cx=\"272\" cy=\"91.4\" r=\"28.6\" fill=\"#6e9444\"/><circle cx=\"256.6\" cy=\"104.6\" r=\"17.6\" fill=\"#6e9444\"/><circle cx=\"287.4\" cy=\"104.6\" r=\"17.6\" fill=\"#6e9444\"/><rect x=\"31.3\" y=\"110\" width=\"5.4\" height=\"41.4\" fill=\"#6b4a33\" /><circle cx=\"34\" cy=\"104.6\" r=\"23.400000000000002\" fill=\"#86ad58\"/><circle cx=\"21.4\" cy=\"115.4\" r=\"14.4\" fill=\"#86ad58\"/><circle cx=\"46.6\" cy=\"115.4\" r=\"14.4\" fill=\"#86ad58\"/></svg>", "<svg class=\"scene\" viewBox=\"0 0 320 200\" preserveAspectRatio=\"xMidYMid slice\" width=\"100%\" height=\"100%\" role=\"img\" aria-label=\"Ilustración de la propiedad\"><rect x=\"0\" y=\"0\" width=\"320\" height=\"200\" fill=\"#eee8dd\" /><rect x=\"0\" y=\"142\" width=\"320\" height=\"58\" fill=\"#c9a984\" /><rect x=\"0\" y=\"138\" width=\"320\" height=\"5\" fill=\"#b79770\" /><rect x=\"196\" y=\"32\" width=\"88\" height=\"76\" fill=\"#d4e6ef\" /><rect x=\"196\" y=\"32\" width=\"88\" height=\"76\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"5\"/><rect x=\"238\" y=\"32\" width=\"4\" height=\"76\" fill=\"#fbf8f2\" /><rect x=\"196\" y=\"68\" width=\"88\" height=\"4\" fill=\"#fbf8f2\" /><rect x=\"186\" y=\"28\" width=\"14\" height=\"86\" fill=\"#d9cebb\" /><rect x=\"280\" y=\"28\" width=\"14\" height=\"86\" fill=\"#d9cebb\" /><rect x=\"36\" y=\"84\" width=\"10\" height=\"64\" fill=\"#9b7653\" /><rect x=\"40\" y=\"112\" width=\"128\" height=\"38\" fill=\"#f7f4ee\" rx=\"6\"/><rect x=\"40\" y=\"128\" width=\"128\" height=\"22\" fill=\"#8aa86a\" rx=\"4\"/><rect x=\"48\" y=\"102\" width=\"40\" height=\"16\" fill=\"#ffffff\" rx=\"6\"/><rect x=\"180\" y=\"150\" width=\"70\" height=\"6\" fill=\"#b79770\" /><rect x=\"264\" y=\"126\" width=\"22\" height=\"26\" fill=\"#b98462\" /><ellipse cx=\"275\" cy=\"116\" rx=\"10\" ry=\"16\" fill=\"#6e9444\"/><ellipse cx=\"264\" cy=\"122\" rx=\"8\" ry=\"13\" fill=\"#7aa150\"/><ellipse cx=\"287\" cy=\"122\" rx=\"8\" ry=\"13\" fill=\"#7aa150\"/><rect x=\"100\" y=\"40\" width=\"50\" height=\"34\" fill=\"#e6dfd1\" /><rect x=\"104\" y=\"44\" width=\"42\" height=\"26\" fill=\"#c8bca6\" /></svg>", "<svg class=\"scene\" viewBox=\"0 0 320 200\" preserveAspectRatio=\"xMidYMid slice\" width=\"100%\" height=\"100%\" role=\"img\" aria-label=\"Ilustración de la propiedad\"><rect x=\"0\" y=\"0\" width=\"320\" height=\"200\" fill=\"#e4ecf0\" /><rect x=\"0\" y=\"170\" width=\"320\" height=\"30\" fill=\"#c8c5bb\" /><rect x=\"98\" y=\"12\" width=\"124\" height=\"160\" fill=\"#cbd2d0\" /><rect x=\"98\" y=\"12\" width=\"124\" height=\"8\" fill=\"#9aa39f\" /><rect x=\"110\" y=\"30\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"110\" y=\"54\" width=\"28\" height=\"16\" fill=\"#f2dfa8\" /><rect x=\"110\" y=\"78\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"110\" y=\"102\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"110\" y=\"126\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"148\" y=\"30\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"148\" y=\"54\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"148\" y=\"78\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"148\" y=\"102\" width=\"28\" height=\"16\" fill=\"#f2dfa8\" /><rect x=\"148\" y=\"126\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"186\" y=\"30\" width=\"28\" height=\"16\" fill=\"#f2dfa8\" /><rect x=\"186\" y=\"54\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"186\" y=\"78\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"186\" y=\"102\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"186\" y=\"126\" width=\"28\" height=\"16\" fill=\"#f2dfa8\" /><rect x=\"126\" y=\"138\" width=\"68\" height=\"34\" fill=\"#8d948f\" /><rect x=\"126\" y=\"142\" width=\"68\" height=\"2\" fill=\"#a9afab\" /><rect x=\"126\" y=\"149\" width=\"68\" height=\"2\" fill=\"#a9afab\" /><rect x=\"126\" y=\"156\" width=\"68\" height=\"2\" fill=\"#a9afab\" /><rect x=\"126\" y=\"163\" width=\"68\" height=\"2\" fill=\"#a9afab\" /><rect x=\"37.3\" y=\"128\" width=\"5.4\" height=\"41.4\" fill=\"#6b4a33\" /><circle cx=\"40\" cy=\"122.6\" r=\"23.400000000000002\" fill=\"#7aa150\"/><circle cx=\"27.4\" cy=\"133.4\" r=\"14.4\" fill=\"#7aa150\"/><circle cx=\"52.6\" cy=\"133.4\" r=\"14.4\" fill=\"#7aa150\"/><rect x=\"281.6\" y=\"134\" width=\"4.800000000000001\" height=\"36.800000000000004\" fill=\"#6b4a33\" /><circle cx=\"284\" cy=\"129.2\" r=\"20.8\" fill=\"#86ad58\"/><circle cx=\"272.8\" cy=\"138.8\" r=\"12.8\" fill=\"#86ad58\"/><circle cx=\"295.2\" cy=\"138.8\" r=\"12.8\" fill=\"#86ad58\"/></svg>", "<svg class=\"scene\" viewBox=\"0 0 320 200\" preserveAspectRatio=\"xMidYMid slice\" width=\"100%\" height=\"100%\" role=\"img\" aria-label=\"Ilustración de la propiedad\"><rect x=\"0\" y=\"0\" width=\"320\" height=\"200\" fill=\"#e6e1d8\" /><rect x=\"0\" y=\"172\" width=\"320\" height=\"28\" fill=\"#bdb8ac\" /><rect x=\"64\" y=\"22\" width=\"192\" height=\"26\" fill=\"#3b3d38\" /><rect x=\"84\" y=\"32\" width=\"60\" height=\"6\" fill=\"#d8d2c4\" /><rect x=\"160\" y=\"32\" width=\"40\" height=\"6\" fill=\"#8a6a47\" /><rect x=\"50\" y=\"56\" width=\"22\" height=\"28\" fill=\"#8a6a47\" /><rect x=\"72\" y=\"56\" width=\"22\" height=\"28\" fill=\"#f1e9dc\" /><rect x=\"94\" y=\"56\" width=\"22\" height=\"28\" fill=\"#8a6a47\" /><rect x=\"116\" y=\"56\" width=\"22\" height=\"28\" fill=\"#f1e9dc\" /><rect x=\"138\" y=\"56\" width=\"22\" height=\"28\" fill=\"#8a6a47\" /><rect x=\"160\" y=\"56\" width=\"22\" height=\"28\" fill=\"#f1e9dc\" /><rect x=\"182\" y=\"56\" width=\"22\" height=\"28\" fill=\"#8a6a47\" /><rect x=\"204\" y=\"56\" width=\"22\" height=\"28\" fill=\"#f1e9dc\" /><rect x=\"226\" y=\"56\" width=\"22\" height=\"28\" fill=\"#8a6a47\" /><rect x=\"248\" y=\"56\" width=\"22\" height=\"28\" fill=\"#f1e9dc\" /><rect x=\"60\" y=\"92\" width=\"132\" height=\"74\" fill=\"#cfe0e8\" /><rect x=\"60\" y=\"92\" width=\"132\" height=\"74\" fill=\"none\" stroke=\"#7a5a40\" stroke-width=\"4\"/><rect x=\"124\" y=\"92\" width=\"4\" height=\"74\" fill=\"#7a5a40\" /><rect x=\"206\" y=\"92\" width=\"50\" height=\"80\" fill=\"#7a5a40\" /><rect x=\"214\" y=\"100\" width=\"34\" height=\"50\" fill=\"#cfe0e8\" /><rect x=\"240\" y=\"128\" width=\"4\" height=\"10\" fill=\"#e6e1d8\" /><rect x=\"70\" y=\"142\" width=\"30\" height=\"24\" fill=\"#b98462\" /><ellipse cx=\"85\" cy=\"132\" rx=\"14\" ry=\"16\" fill=\"#6e9444\"/></svg>", "<svg class=\"scene\" viewBox=\"0 0 320 200\" preserveAspectRatio=\"xMidYMid slice\" width=\"100%\" height=\"100%\" role=\"img\" aria-label=\"Ilustración de la propiedad\"><rect x=\"0\" y=\"0\" width=\"320\" height=\"200\" fill=\"#e5ebe8\" /><rect x=\"0\" y=\"150\" width=\"320\" height=\"50\" fill=\"#a9c47e\" /><rect x=\"56\" y=\"84\" width=\"208\" height=\"70\" fill=\"#c98b6b\" /><rect x=\"52\" y=\"76\" width=\"216\" height=\"10\" fill=\"#7a5a40\" /><rect x=\"74\" y=\"100\" width=\"40\" height=\"32\" fill=\"#cfe0e8\" /><rect x=\"74\" y=\"100\" width=\"40\" height=\"32\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><rect x=\"200\" y=\"100\" width=\"40\" height=\"32\" fill=\"#cfe0e8\" /><rect x=\"200\" y=\"100\" width=\"40\" height=\"32\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><rect x=\"142\" y=\"104\" width=\"34\" height=\"50\" fill=\"#f1e9dc\" /><rect x=\"150\" y=\"112\" width=\"18\" height=\"28\" fill=\"#cfe0e8\" /><rect x=\"40\" y=\"154\" width=\"240\" height=\"16\" fill=\"#d6cdbb\" /><rect x=\"0\" y=\"170\" width=\"320\" height=\"30\" fill=\"#a9c47e\" /><circle cx=\"60\" cy=\"150\" r=\"18\" fill=\"#c46a6a\"/><circle cx=\"78\" cy=\"156\" r=\"12\" fill=\"#d17f7f\"/><circle cx=\"262\" cy=\"148\" r=\"16\" fill=\"#c46a6a\"/><rect x=\"295.6\" y=\"104\" width=\"4.800000000000001\" height=\"36.800000000000004\" fill=\"#6b4a33\" /><circle cx=\"298\" cy=\"99.2\" r=\"20.8\" fill=\"#76a04c\"/><circle cx=\"286.8\" cy=\"108.8\" r=\"12.8\" fill=\"#76a04c\"/><circle cx=\"309.2\" cy=\"108.8\" r=\"12.8\" fill=\"#76a04c\"/></svg>"];
+const ART = {"hero": "<svg class=\"art\" viewBox=\"0 0 640 480\" preserveAspectRatio=\"xMidYMid slice\" width=\"100%\" height=\"100%\" role=\"img\" aria-label=\"Ilustración de una pareja frente a su nueva casa con las llaves en la mano\"><g transform=\"scale(2)\"><rect x=\"0\" y=\"0\" width=\"320\" height=\"200\" fill=\"#e4ece9\" /><rect x=\"0\" y=\"140\" width=\"320\" height=\"60\" fill=\"#a2c277\" /><rect x=\"86\" y=\"86\" width=\"148\" height=\"72\" fill=\"#f1e8d8\" /><polygon points=\"76,92 160,38 244,92\" fill=\"#a65f3e\"/><rect x=\"196\" y=\"44\" width=\"14\" height=\"26\" fill=\"#8d5336\" /><rect x=\"150\" y=\"114\" width=\"22\" height=\"44\" fill=\"#6b4a33\" /><rect x=\"102\" y=\"106\" width=\"30\" height=\"26\" fill=\"#8fb0c0\" /><rect x=\"102\" y=\"106\" width=\"30\" height=\"26\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><rect x=\"188\" y=\"106\" width=\"30\" height=\"26\" fill=\"#8fb0c0\" /><rect x=\"188\" y=\"106\" width=\"30\" height=\"26\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><polygon points=\"150,158 172,158 190,200 132,200\" fill=\"#dcd1ba\"/><rect x=\"6\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"28\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"50\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"72\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"94\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"116\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"138\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"160\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"182\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"204\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"226\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"248\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"270\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"292\" y=\"170\" width=\"4\" height=\"24\" fill=\"#f6f1e6\" /><rect x=\"0\" y=\"176\" width=\"320\" height=\"4\" fill=\"#f6f1e6\" /><rect x=\"268.7\" y=\"98\" width=\"6.6000000000000005\" height=\"50.6\" fill=\"#6b4a33\" /><circle cx=\"272\" cy=\"91.4\" r=\"28.6\" fill=\"#6e9444\"/><circle cx=\"256.6\" cy=\"104.6\" r=\"17.6\" fill=\"#6e9444\"/><circle cx=\"287.4\" cy=\"104.6\" r=\"17.6\" fill=\"#6e9444\"/><rect x=\"31.3\" y=\"110\" width=\"5.4\" height=\"41.4\" fill=\"#6b4a33\" /><circle cx=\"34\" cy=\"104.6\" r=\"23.400000000000002\" fill=\"#86ad58\"/><circle cx=\"21.4\" cy=\"115.4\" r=\"14.4\" fill=\"#86ad58\"/><circle cx=\"46.6\" cy=\"115.4\" r=\"14.4\" fill=\"#86ad58\"/></g><rect x=\"0\" y=\"400\" width=\"640\" height=\"80\" fill=\"#a2c277\" /><rect x=\"0\" y=\"470\" width=\"640\" height=\"10\" fill=\"#8fb165\" /><path d=\"M262 330 L322 330 L350 480 L234 480Z\" fill=\"#dcd1ba\" opacity=\".0\"/><g transform=\"translate(470,472) scale(1.0)\"><rect x=\"-27\" y=\"-205\" width=\"54\" height=\"70\" fill=\"#2b1d16\" rx=\"26\"/><rect x=\"-19\" y=\"-72\" width=\"16\" height=\"72\" fill=\"#3f4a57\" rx=\"7\"/><rect x=\"3\" y=\"-72\" width=\"16\" height=\"72\" fill=\"#3f4a57\" rx=\"7\"/><rect x=\"-17\" y=\"-6\" width=\"15\" height=\"8\" fill=\"#2b2b2b\" rx=\"4\"/><rect x=\"2\" y=\"-6\" width=\"15\" height=\"8\" fill=\"#2b2b2b\" rx=\"4\"/><rect x=\"-28\" y=\"-152\" width=\"56\" height=\"88\" fill=\"#4a7822\" rx=\"24\"/><rect x=\"-6\" y=\"-170\" width=\"12\" height=\"22\" fill=\"#c98f68\" /><path d=\"M24 -136 Q52 -140 54 -180\" stroke=\"#4a7822\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"54\" cy=\"-186\" r=\"8\" fill=\"#c98f68\"/><g transform=\"translate(54,-200)\"><circle r=\"8\" fill=\"none\" stroke=\"#c9972b\" stroke-width=\"4\"/><rect x=\"-2\" y=\"6\" width=\"4\" height=\"22\" fill=\"#c9972b\"/><rect x=\"2\" y=\"18\" width=\"8\" height=\"4\" fill=\"#c9972b\"/><rect x=\"2\" y=\"25\" width=\"6\" height=\"4\" fill=\"#c9972b\"/></g><path d=\"M-24 -136 Q-34 -104 -26 -82\" stroke=\"#4a7822\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"-26\" cy=\"-76\" r=\"7\" fill=\"#c98f68\"/><circle cx=\"0\" cy=\"-190\" r=\"25\" fill=\"#c98f68\"/><path d=\"M-26 -192 A26 26 0 0 1 26 -192 Q10 -206 -4 -200 Q-16 -196 -26 -192Z\" fill=\"#2b1d16\"/><circle cx=\"-9\" cy=\"-189\" r=\"2.2\" fill=\"#2b2b2b\"/><circle cx=\"9\" cy=\"-189\" r=\"2.2\" fill=\"#2b2b2b\"/><path d=\"M-6 -178 Q0 -173 6 -178\" stroke=\"#8a4b3a\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\"/></g><g transform=\"translate(548,474) scale(0.92)\"><rect x=\"-19\" y=\"-72\" width=\"16\" height=\"72\" fill=\"#4b5563\" rx=\"7\"/><rect x=\"3\" y=\"-72\" width=\"16\" height=\"72\" fill=\"#4b5563\" rx=\"7\"/><rect x=\"-17\" y=\"-6\" width=\"15\" height=\"8\" fill=\"#2b2b2b\" rx=\"4\"/><rect x=\"2\" y=\"-6\" width=\"15\" height=\"8\" fill=\"#2b2b2b\" rx=\"4\"/><rect x=\"-28\" y=\"-152\" width=\"56\" height=\"88\" fill=\"#d8a35d\" rx=\"24\"/><rect x=\"-6\" y=\"-170\" width=\"12\" height=\"22\" fill=\"#e3b58f\" /><path d=\"M-24 -136 Q-34 -104 -26 -82\" stroke=\"#d8a35d\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"-26\" cy=\"-76\" r=\"7\" fill=\"#e3b58f\"/><path d=\"M24 -136 Q34 -104 26 -82\" stroke=\"#d8a35d\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"26\" cy=\"-76\" r=\"7\" fill=\"#e3b58f\"/><circle cx=\"0\" cy=\"-190\" r=\"25\" fill=\"#e3b58f\"/><path d=\"M-26 -192 A26 26 0 0 1 26 -192 Q10 -206 -4 -200 Q-16 -196 -26 -192Z\" fill=\"#4a3426\"/><circle cx=\"-9\" cy=\"-189\" r=\"2.2\" fill=\"#2b2b2b\"/><circle cx=\"9\" cy=\"-189\" r=\"2.2\" fill=\"#2b2b2b\"/><path d=\"M-6 -178 Q0 -173 6 -178\" stroke=\"#8a4b3a\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\"/></g></svg>", "owner": "<svg class=\"art\" viewBox=\"0 0 512 390\" preserveAspectRatio=\"xMidYMid slice\" width=\"100%\" height=\"100%\" role=\"img\" aria-label=\"Ilustración de una propietaria y una agente revisando candidatos en una tablet frente a un edificio\"><g transform=\"scale(1.6)\"><rect x=\"0\" y=\"0\" width=\"320\" height=\"200\" fill=\"#e4ecf0\" /><rect x=\"0\" y=\"170\" width=\"320\" height=\"30\" fill=\"#c8c5bb\" /><rect x=\"98\" y=\"12\" width=\"124\" height=\"160\" fill=\"#cbd2d0\" /><rect x=\"98\" y=\"12\" width=\"124\" height=\"8\" fill=\"#9aa39f\" /><rect x=\"110\" y=\"30\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"110\" y=\"54\" width=\"28\" height=\"16\" fill=\"#f2dfa8\" /><rect x=\"110\" y=\"78\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"110\" y=\"102\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"110\" y=\"126\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"148\" y=\"30\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"148\" y=\"54\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"148\" y=\"78\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"148\" y=\"102\" width=\"28\" height=\"16\" fill=\"#f2dfa8\" /><rect x=\"148\" y=\"126\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"186\" y=\"30\" width=\"28\" height=\"16\" fill=\"#f2dfa8\" /><rect x=\"186\" y=\"54\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"186\" y=\"78\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"186\" y=\"102\" width=\"28\" height=\"16\" fill=\"#7f9aa8\" /><rect x=\"186\" y=\"126\" width=\"28\" height=\"16\" fill=\"#f2dfa8\" /><rect x=\"126\" y=\"138\" width=\"68\" height=\"34\" fill=\"#8d948f\" /><rect x=\"126\" y=\"142\" width=\"68\" height=\"2\" fill=\"#a9afab\" /><rect x=\"126\" y=\"149\" width=\"68\" height=\"2\" fill=\"#a9afab\" /><rect x=\"126\" y=\"156\" width=\"68\" height=\"2\" fill=\"#a9afab\" /><rect x=\"126\" y=\"163\" width=\"68\" height=\"2\" fill=\"#a9afab\" /><rect x=\"37.3\" y=\"128\" width=\"5.4\" height=\"41.4\" fill=\"#6b4a33\" /><circle cx=\"40\" cy=\"122.6\" r=\"23.400000000000002\" fill=\"#7aa150\"/><circle cx=\"27.4\" cy=\"133.4\" r=\"14.4\" fill=\"#7aa150\"/><circle cx=\"52.6\" cy=\"133.4\" r=\"14.4\" fill=\"#7aa150\"/><rect x=\"281.6\" y=\"134\" width=\"4.800000000000001\" height=\"36.800000000000004\" fill=\"#6b4a33\" /><circle cx=\"284\" cy=\"129.2\" r=\"20.8\" fill=\"#86ad58\"/><circle cx=\"272.8\" cy=\"138.8\" r=\"12.8\" fill=\"#86ad58\"/><circle cx=\"295.2\" cy=\"138.8\" r=\"12.8\" fill=\"#86ad58\"/></g><rect x=\"0\" y=\"320\" width=\"512\" height=\"70\" fill=\"#c8c5bb\" /><g transform=\"translate(210,386) scale(1.0)\"><rect x=\"-19\" y=\"-72\" width=\"16\" height=\"72\" fill=\"#3f4a57\" rx=\"7\"/><rect x=\"3\" y=\"-72\" width=\"16\" height=\"72\" fill=\"#3f4a57\" rx=\"7\"/><rect x=\"-17\" y=\"-6\" width=\"15\" height=\"8\" fill=\"#2b2b2b\" rx=\"4\"/><rect x=\"2\" y=\"-6\" width=\"15\" height=\"8\" fill=\"#2b2b2b\" rx=\"4\"/><rect x=\"-28\" y=\"-152\" width=\"56\" height=\"88\" fill=\"#6b8f4a\" rx=\"24\"/><rect x=\"-6\" y=\"-170\" width=\"12\" height=\"22\" fill=\"#e3b58f\" /><path d=\"M-24 -136 Q-40 -108 -8 -100\" stroke=\"#6b8f4a\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M24 -136 Q40 -108 8 -100\" stroke=\"#6b8f4a\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\"/><rect x=\"-22\" y=\"-124\" width=\"44\" height=\"30\" rx=\"5\" fill=\"#f7f4ee\" stroke=\"#6b7280\" stroke-width=\"3\"/><rect x=\"-15\" y=\"-118\" width=\"30\" height=\"5\" rx=\"2\" fill=\"#76a04c\"/><rect x=\"-15\" y=\"-109\" width=\"22\" height=\"4\" rx=\"2\" fill=\"#c8c5bb\"/><circle cx=\"-6\" cy=\"-98\" r=\"7\" fill=\"#e3b58f\"/><circle cx=\"6\" cy=\"-98\" r=\"7\" fill=\"#e3b58f\"/><circle cx=\"0\" cy=\"-190\" r=\"25\" fill=\"#e3b58f\"/><path d=\"M-26 -192 A26 26 0 0 1 26 -192 Q10 -206 -4 -200 Q-16 -196 -26 -192Z\" fill=\"#d6d1c8\"/><circle cx=\"-9\" cy=\"-189\" r=\"2.2\" fill=\"#2b2b2b\"/><circle cx=\"9\" cy=\"-189\" r=\"2.2\" fill=\"#2b2b2b\"/><path d=\"M-6 -178 Q0 -173 6 -178\" stroke=\"#8a4b3a\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\"/></g><g transform=\"translate(300,388) scale(0.95)\"><rect x=\"-27\" y=\"-205\" width=\"54\" height=\"70\" fill=\"#1f1712\" rx=\"26\"/><rect x=\"-19\" y=\"-72\" width=\"16\" height=\"72\" fill=\"#4b5563\" rx=\"7\"/><rect x=\"3\" y=\"-72\" width=\"16\" height=\"72\" fill=\"#4b5563\" rx=\"7\"/><rect x=\"-17\" y=\"-6\" width=\"15\" height=\"8\" fill=\"#2b2b2b\" rx=\"4\"/><rect x=\"2\" y=\"-6\" width=\"15\" height=\"8\" fill=\"#2b2b2b\" rx=\"4\"/><rect x=\"-28\" y=\"-152\" width=\"56\" height=\"88\" fill=\"#3b6a9a\" rx=\"24\"/><rect x=\"-6\" y=\"-170\" width=\"12\" height=\"22\" fill=\"#b97d58\" /><path d=\"M-24 -136 Q-34 -104 -26 -82\" stroke=\"#3b6a9a\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"-26\" cy=\"-76\" r=\"7\" fill=\"#b97d58\"/><path d=\"M24 -136 Q34 -104 26 -82\" stroke=\"#3b6a9a\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"26\" cy=\"-76\" r=\"7\" fill=\"#b97d58\"/><circle cx=\"0\" cy=\"-190\" r=\"25\" fill=\"#b97d58\"/><path d=\"M-26 -192 A26 26 0 0 1 26 -192 Q10 -206 -4 -200 Q-16 -196 -26 -192Z\" fill=\"#1f1712\"/><circle cx=\"-9\" cy=\"-189\" r=\"2.2\" fill=\"#2b2b2b\"/><circle cx=\"9\" cy=\"-189\" r=\"2.2\" fill=\"#2b2b2b\"/><path d=\"M-6 -178 Q0 -173 6 -178\" stroke=\"#8a4b3a\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\"/></g></svg>", "family": "<svg class=\"art\" viewBox=\"0 0 512 390\" preserveAspectRatio=\"xMidYMid slice\" width=\"100%\" height=\"100%\" role=\"img\" aria-label=\"Ilustración de una pareja mudándose a un departamento\"><g transform=\"scale(1.6)\"><rect x=\"0\" y=\"0\" width=\"320\" height=\"200\" fill=\"#dde6ea\" /><rect x=\"0\" y=\"168\" width=\"320\" height=\"32\" fill=\"#c8c5bb\" /><rect x=\"66\" y=\"26\" width=\"188\" height=\"144\" fill=\"#e9e1d3\" /><rect x=\"66\" y=\"26\" width=\"188\" height=\"10\" fill=\"#b9ad98\" /><rect x=\"84\" y=\"48\" width=\"38\" height=\"36\" fill=\"#86a3b3\" /><rect x=\"84\" y=\"48\" width=\"38\" height=\"36\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><rect x=\"102\" y=\"48\" width=\"2\" height=\"36\" fill=\"#fbf8f2\" /><rect x=\"140\" y=\"48\" width=\"38\" height=\"36\" fill=\"#86a3b3\" /><rect x=\"140\" y=\"48\" width=\"38\" height=\"36\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><rect x=\"158\" y=\"48\" width=\"2\" height=\"36\" fill=\"#fbf8f2\" /><rect x=\"196\" y=\"48\" width=\"38\" height=\"36\" fill=\"#86a3b3\" /><rect x=\"196\" y=\"48\" width=\"38\" height=\"36\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><rect x=\"214\" y=\"48\" width=\"2\" height=\"36\" fill=\"#fbf8f2\" /><rect x=\"84\" y=\"100\" width=\"38\" height=\"36\" fill=\"#86a3b3\" /><rect x=\"84\" y=\"100\" width=\"38\" height=\"36\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><rect x=\"102\" y=\"100\" width=\"2\" height=\"36\" fill=\"#fbf8f2\" /><rect x=\"140\" y=\"100\" width=\"38\" height=\"36\" fill=\"#86a3b3\" /><rect x=\"140\" y=\"100\" width=\"38\" height=\"36\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><rect x=\"158\" y=\"100\" width=\"2\" height=\"36\" fill=\"#fbf8f2\" /><rect x=\"196\" y=\"100\" width=\"38\" height=\"36\" fill=\"#86a3b3\" /><rect x=\"196\" y=\"100\" width=\"38\" height=\"36\" fill=\"none\" stroke=\"#fbf8f2\" stroke-width=\"3\"/><rect x=\"214\" y=\"100\" width=\"2\" height=\"36\" fill=\"#fbf8f2\" /><rect x=\"138\" y=\"98\" width=\"44\" height=\"4\" fill=\"#5b5f5a\" /><rect x=\"142\" y=\"86\" width=\"2\" height=\"14\" fill=\"#5b5f5a\" /><rect x=\"150\" y=\"86\" width=\"2\" height=\"14\" fill=\"#5b5f5a\" /><rect x=\"158\" y=\"86\" width=\"2\" height=\"14\" fill=\"#5b5f5a\" /><rect x=\"166\" y=\"86\" width=\"2\" height=\"14\" fill=\"#5b5f5a\" /><rect x=\"174\" y=\"86\" width=\"2\" height=\"14\" fill=\"#5b5f5a\" /><rect x=\"138\" y=\"86\" width=\"44\" height=\"3\" fill=\"#5b5f5a\" /><rect x=\"146\" y=\"130\" width=\"28\" height=\"40\" fill=\"#7a5a40\" /><circle cx=\"168\" cy=\"152\" r=\"2\" fill=\"#e9e1d3\"/><rect x=\"27\" y=\"118\" width=\"6\" height=\"46\" fill=\"#6b4a33\" /><circle cx=\"30\" cy=\"112\" r=\"26\" fill=\"#76a04c\"/><circle cx=\"16\" cy=\"124\" r=\"16\" fill=\"#76a04c\"/><circle cx=\"44\" cy=\"124\" r=\"16\" fill=\"#76a04c\"/><rect x=\"289.6\" y=\"128\" width=\"4.800000000000001\" height=\"36.800000000000004\" fill=\"#6b4a33\" /><circle cx=\"292\" cy=\"123.2\" r=\"20.8\" fill=\"#8aae5e\"/><circle cx=\"280.8\" cy=\"132.8\" r=\"12.8\" fill=\"#8aae5e\"/><circle cx=\"303.2\" cy=\"132.8\" r=\"12.8\" fill=\"#8aae5e\"/></g><rect x=\"0\" y=\"320\" width=\"512\" height=\"70\" fill=\"#c8c5bb\" /><g transform=\"translate(190,388) scale(1.0)\"><rect x=\"-19\" y=\"-72\" width=\"16\" height=\"72\" fill=\"#3f4a57\" rx=\"7\"/><rect x=\"3\" y=\"-72\" width=\"16\" height=\"72\" fill=\"#3f4a57\" rx=\"7\"/><rect x=\"-17\" y=\"-6\" width=\"15\" height=\"8\" fill=\"#2b2b2b\" rx=\"4\"/><rect x=\"2\" y=\"-6\" width=\"15\" height=\"8\" fill=\"#2b2b2b\" rx=\"4\"/><rect x=\"-28\" y=\"-152\" width=\"56\" height=\"88\" fill=\"#d8a35d\" rx=\"24\"/><rect x=\"-6\" y=\"-170\" width=\"12\" height=\"22\" fill=\"#e3b58f\" /><path d=\"M-24 -136 Q-40 -108 -8 -100\" stroke=\"#d8a35d\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M24 -136 Q40 -108 8 -100\" stroke=\"#d8a35d\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\"/><rect x=\"-34\" y=\"-112\" width=\"68\" height=\"46\" rx=\"4\" fill=\"#c59a6a\"/><rect x=\"-34\" y=\"-112\" width=\"68\" height=\"10\" fill=\"#b0865a\"/><rect x=\"-10\" y=\"-102\" width=\"20\" height=\"5\" fill=\"#e9d3b0\"/><circle cx=\"-6\" cy=\"-98\" r=\"7\" fill=\"#e3b58f\"/><circle cx=\"6\" cy=\"-98\" r=\"7\" fill=\"#e3b58f\"/><circle cx=\"0\" cy=\"-190\" r=\"25\" fill=\"#e3b58f\"/><path d=\"M-26 -192 A26 26 0 0 1 26 -192 Q10 -206 -4 -200 Q-16 -196 -26 -192Z\" fill=\"#2b1d16\"/><circle cx=\"-9\" cy=\"-189\" r=\"2.2\" fill=\"#2b2b2b\"/><circle cx=\"9\" cy=\"-189\" r=\"2.2\" fill=\"#2b2b2b\"/><path d=\"M-6 -178 Q0 -173 6 -178\" stroke=\"#8a4b3a\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\"/></g><g transform=\"translate(300,390) scale(0.95)\"><rect x=\"-27\" y=\"-205\" width=\"54\" height=\"70\" fill=\"#2b1d16\" rx=\"26\"/><rect x=\"-19\" y=\"-72\" width=\"16\" height=\"72\" fill=\"#4b5563\" rx=\"7\"/><rect x=\"3\" y=\"-72\" width=\"16\" height=\"72\" fill=\"#4b5563\" rx=\"7\"/><rect x=\"-17\" y=\"-6\" width=\"15\" height=\"8\" fill=\"#2b2b2b\" rx=\"4\"/><rect x=\"2\" y=\"-6\" width=\"15\" height=\"8\" fill=\"#2b2b2b\" rx=\"4\"/><rect x=\"-28\" y=\"-152\" width=\"56\" height=\"88\" fill=\"#4a7822\" rx=\"24\"/><rect x=\"-6\" y=\"-170\" width=\"12\" height=\"22\" fill=\"#c98f68\" /><path d=\"M-24 -136 Q-34 -104 -26 -82\" stroke=\"#4a7822\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"-26\" cy=\"-76\" r=\"7\" fill=\"#c98f68\"/><path d=\"M24 -136 Q34 -104 26 -82\" stroke=\"#4a7822\" stroke-width=\"14\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"26\" cy=\"-76\" r=\"7\" fill=\"#c98f68\"/><circle cx=\"0\" cy=\"-190\" r=\"25\" fill=\"#c98f68\"/><path d=\"M-26 -192 A26 26 0 0 1 26 -192 Q10 -206 -4 -200 Q-16 -196 -26 -192Z\" fill=\"#2b1d16\"/><circle cx=\"-9\" cy=\"-189\" r=\"2.2\" fill=\"#2b2b2b\"/><circle cx=\"9\" cy=\"-189\" r=\"2.2\" fill=\"#2b2b2b\"/><path d=\"M-6 -178 Q0 -173 6 -178\" stroke=\"#8a4b3a\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\"/></g></svg>"};
+let PHOTOS = {};
+try { PHOTOS = JSON.parse(localStorage.getItem('hogar-photos') || '{}') || {}; } catch (e) { PHOTOS = {}; }
+const sceneIdx = id => { const pr = typeof S !== 'undefined' && S.props.find(p => p.id === id); return (pr && pr.sc != null ? pr.sc : id - 1) % SCENES.length; };
+const scene = id => PHOTOS[id] ? `<img src="${PHOTOS[id]}" alt="Foto de la propiedad" class="realph">` : SCENES[sceneIdx(id)];
+function readPhoto(file){ return new Promise((res,rej)=>{ const fr=new FileReader(); fr.onload=()=>{ const img=new Image(); img.onload=()=>{ const m=900, k=Math.min(1,m/Math.max(img.width,img.height)); const c=document.createElement('canvas'); c.width=Math.round(img.width*k); c.height=Math.round(img.height*k); c.getContext('2d').drawImage(img,0,0,c.width,c.height); res(c.toDataURL('image/jpeg',0.82)); }; img.onerror=rej; img.src=fr.result; }; fr.onerror=rej; fr.readAsDataURL(file); }); }
+function savePhotos(){ try { localStorage.setItem('hogar-photos', JSON.stringify(PHOTOS)); return true; } catch (e) { return false; } }
+const ic = n => `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true">${ICONS[n]}</svg>`;
+const money = n => '$' + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- state ---------- */
+const fresh = () => ({
+  role:'land', screen:'l1', hist:[],
+  p:{budget:850000,declared:false,proof:false,processing:false,error:false,incomeNet:1980000,incomeEdited:false,editing:false,seniority:2,guarantee:true,type:'Recibo de sueldo'},
+  filterBudget:true, postTab:'act', apps:[], props:SEED_PROPS(), cands:SEED_CANDS(), curProp:1, curCand:null, curPropT:null,
+  candFilter:true, rolePick:'t', terms:true, consent:true, ownerSeg:'all', sheet:null, toast:null,
+  perms:{pub:true,view:true,decide:true,close:false}, agencies:SEED_AGENCIES(),
+  closings:seedClosings(), metrics:SEED_METRICS(), ocr:SEED_OCR(), signups:0, myOcr:null,
+  newForm:{title:'',zone:'',price:'',agent:'Marcos P.',photo:''}
+});
+let S = fresh();
+
+/* ---------- datos derivados: el panel y el CRM calculan todo desde S ---------- */
+const OWNER_AGENCY = 'Inmobiliaria Del Sur';   // la cuenta del propietario en la demo
+const closingsOf = (agency, days) => S.closings.filter(c => (!agency || c.agency === agency) && (!days || c.at >= Date.now() - days*DAY)).length;
+const demoClosings = () => S.closings.filter(c => c.demo).length;
+const fdate = t => { const d = new Date(t); return String(d.getDate()).padStart(2,'0') + '/' + String(d.getMonth()+1).padStart(2,'0'); };
+
+/* ---------- scoring ---------- */
+function calc(p){
+  const income = p.proof ? p.incomeNet : null;
+  const ratio = income ? p.budget / income : null;
+  let f1;
+  if (ratio == null) f1 = {pts:10,lvl:'Sin dato',pct:25,note:'Sin comprobante no podemos medir cuánto de tu ingreso va al alquiler.'};
+  else {
+    const r = Math.round(ratio*100);
+    if (ratio <= .35) f1 = {pts:35,lvl:'Muy bien',pct:100};
+    else if (ratio <= .40) f1 = {pts:28,lvl:'Bien',pct:80};
+    else if (ratio <= .50) f1 = {pts:16,lvl:'Ajustado',pct:45};
+    else f1 = {pts:6,lvl:'Alto',pct:20};
+    f1.note = `Tu presupuesto es el ${r}% de tu ingreso neto. La referencia es 35–40%.`;
+  }
+  const f2 = !p.proof ? {pts:0,lvl:'No suma',pct:0,note:'Todavía no subiste un comprobante de ingresos.'}
+    : p.incomeEdited ? {pts:10,lvl:'Suma poco',pct:45,note:'Corregiste el ingreso: queda como no verificado.'}
+    : {pts:20,lvl:'Suma',pct:85,note:'Comprobante verificado a nombre del titular del DNI.'};
+  const s = Math.min(p.seniority,5)*3;
+  const f3 = {pts:s,lvl:s>=12?'Suma':s>0?'Suma poco':'No suma',pct:Math.round(s/15*100),note:`${p.seniority} ${p.seniority===1?'año':'años'}, declarada.`};
+  const f4 = p.guarantee ? {pts:15,lvl:'Suma',pct:70,note:'Declarada. La inmobiliaria valida el tipo.'} : {pts:0,lvl:'No suma',pct:0,note:'No declaraste garantía.'};
+  const total = Math.min(100, 10 + f1.pts + f2.pts + f3.pts + f4.pts);
+  return {total, f1, f2, f3, f4, ratio};
+}
+const pstatus = p => p.processing ? 'reviewing' : p.proof ? 'complete' : 'incomplete';
+
+/* ---------- ui helpers ---------- */
+const badge = (t,k='neutral',i) => `<span class="h-badge h-badge--${k}">${i?ic(i):''}${t}</span>`;
+const banner = (k,t,x,i) => `<div class="h-banner h-banner--${k}" role="note">${ic(i||{warn:'alert',info:'info',danger:'alert',ok:'check'}[k])}<div><b>${t}</b>${x}</div></div>`;
+const btn = (t,act,o={}) => `<button class="h-btn h-btn--${o.kind||'primary'}${o.block?' h-btn--block':''}${o.sm?' h-btn--sm':''}" data-act="${act}" ${Object.entries(o.d||{}).map(([k,v])=>`data-${k}="${esc(v)}"`).join(' ')} ${o.disabled?'disabled':''}>${o.icon?ic(o.icon):''}${t}</button>`;
+const check = (t,on,act,d='') => `<button class="h-checkrow h-plain" data-act="${act}" ${d} role="checkbox" aria-checked="${!!on}"><span class="h-checkbox${on?' h-checkbox--on':''}">${on?ic('check'):''}</span><span>${t}</span></button>`;
+const sw = (on,act,d='') => `<button class="h-plain" data-act="${act}" ${d} role="switch" aria-checked="${!!on}" aria-label="Activar"><span class="h-switch${on?' h-switch--on':''}"></span></button>`;
+function ring(score,size=120,sm=false){
+  const C = 2*Math.PI*52, d = C*score/100;
+  return `<div class="h-ring${sm?' h-ring--sm':''}" style="width:${size}px;height:${size}px" role="img" aria-label="Score ${score} de 100"><svg viewBox="0 0 120 120" width="${size}" height="${size}" aria-hidden="true"><circle cx="60" cy="60" r="52" class="h-ring__track"/><circle cx="60" cy="60" r="52" class="h-ring__val" stroke-dasharray="${d.toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 60 60)"/></svg><div class="h-ring__txt"><span class="score">${score}</span>${sm?'':'<span class="caption">de 100</span>'}</div></div>`;
+}
+const steps = (n,t,title) => `<div class="h-steps"><div class="h-steps__bar">${Array.from({length:t},(_,i)=>`<i class="${i<n?'on':''}"></i>`).join('')}</div><span class="h-steps__t">Paso ${n} de ${t} · ${title}</span></div>`;
+const factor = (t,f) => `<div class="h-factor"><div class="h-factor__h"><span>${t}</span><span>${f.lvl}</span></div><div class="h-bar"><i style="width:${f.pct}%"></i></div><span class="h-help">${f.note}</span></div>`;
+const section = t => `<p class="h-sec">${t}</p>`;
+const photo = id => `<div class="h-photo">${scene(id)}</div>`;
+function propCard(pr, extra=''){
+  const inB = pr.price <= S.p.budget;
+  return `<button class="h-prop h-plain h-card-btn" data-act="openProp" data-id="${pr.id}">${photo(pr.id)}<div class="h-col" style="gap:6px"><div class="h-row" style="justify-content:space-between;flex-wrap:nowrap"><div class="h-price">${money(pr.price)}<small> /mes</small></div>${extra||(inB?badge('En tu presupuesto','ok'):'')}</div><div class="h-li__t">${pr.title}</div><div class="h-meta"><span>${ic('pin')}${pr.zone}</span>${pr.feats.map(f=>`<span>${f}</span>`).join('')}</div></div></button>`;
+}
+function rowProp(pr, sub, badgeHtml, act){
+  return `<${act?'button':'div'} class="h-prop h-prop--row ${act?'h-plain h-card-btn':''}" ${act?`data-act="${act}" data-id="${pr.id}"`:''}>${photo(pr.id)}<div class="h-li__b" style="display:flex;flex-direction:column;gap:2px"><div class="h-li__t">${pr.title}</div><div class="h-li__d">${sub}</div><div class="h-price" style="font-size:16px;white-space:nowrap">${money(pr.price)}<small> /mes</small></div><div style="margin-top:4px">${badgeHtml||''}</div></div></${act?'button':'div'}>`;
+}
+const field = (label, inner, help='') => `<div class="h-field"><span class="h-field__label">${label}</span>${inner}${help?`<span class="h-help">${help}</span>`:''}</div>`;
+const choice = (t,d,on,act) => `<button class="h-choice h-plain${on?' h-choice--on':''}" data-act="${act}"><span class="h-radio"></span><div style="text-align:left"><div class="h-choice__t">${t}</div><div class="h-choice__d">${d}</div></div></button>`;
+
+const NAV_T = [['t-buscar','search','Buscar'],['t-post','file','Postulaciones'],['t-pas','shield','Pasaporte'],['t-cuenta','user','Cuenta']];
+const NAV_O = [['o-panel','home','Panel'],['o-props','building','Propiedades'],['o-equipo','users','Equipo'],['a1','user','Salir']];
+const tabOf = {'t-w1':'t-pas','t-w2':'t-pas','t-w3':'t-pas','t-score':'t-pas','t-prop':'t-buscar','o-new':'o-props','o-cands':'o-props','o-cand':'o-props'};
+const nav = (items,scr) => `<nav class="h-bottomnav" aria-label="Principal">${items.map(([k,i,l])=>`<button class="h-plain ${((tabOf[scr]||scr)===k)?'on':''}" data-act="tab" data-to="${k}" ${((tabOf[scr]||scr)===k)?'aria-current="page"':''}><span class="pill">${ic(i)}</span>${l}</button>`).join('')}</nav>`;
+
+/* ---------- candidates (owner view) ---------- */
+function candList(pid){
+  const list = S.cands[pid].slice();
+  const me = S.apps.find(a => a.pid === pid && a.status !== 'withdrawn');
+  if (me && !list.find(c => c.id === 'me')) {
+    const c = calc(S.p);
+    list.push({id:'me',name:'Lucía Benítez',score:c.total,proof:S.p.proof,income:S.p.proof?S.p.incomeNet:null,sen:S.p.seniority,unv:S.p.incomeEdited,days:'hoy',status:me.status==='sent'?'new':me.status,me:true,guar:S.p.guarantee});
+  }
+  return list.filter(c => !(c.me && S.apps.find(a=>a.pid===pid)?.status==='withdrawn'))
+            .sort((a,b)=>b.score-a.score);
+}
+const preq = c => c.score >= 60 && c.proof;
+const candBadges = c => (c.proof ? (c.unv ? badge('Datos sin verificar','warn','alert') : badge('Ingreso verificado','ok','check')) : badge('Sin comprobante','warn','alert')) + (c.status==='selected'?badge('Seleccionado','ok','check'):c.status==='discarded'?badge('Descartado','neutral'):c.status==='rented'?badge('Alquiló','info','check'):'');
+
+/* ---------- screens ---------- */
+const sc = {};
+
+/* landing */
+const heroArt = () => PHOTOS.hero ? `<img src="${PHOTOS.hero}" alt="Foto de portada" class="realph">` : ART.hero;
+sc['l1'] = () => {
+  const c = {score:74,f1:{lvl:'Muy bien',pct:100,note:'Tu presupuesto es el 33% de tu ingreso neto. La referencia es 35–40%.'},f2:{lvl:'Suma',pct:85,note:'Comprobante verificado a nombre del titular del DNI.'},f3:{lvl:'Suma',pct:80,note:'4 años, declarada.'}};
+  const demoProps = [1,2,4].map(i=>S.props.find(p=>p.id===i));
+  const step = (n,t,x) => `<div class="ld-step"><span class="ld-n">${n}</span><div><div class="h-li__t">${t}</div><p class="body-sm ld-mut">${x}</p></div></div>`;
+  const feat = (i,t,x) => `<div class="ld-feat"><span class="h-tick">${ic(i)}</span><div><div class="h-li__t">${t}</div><p class="body-sm ld-mut">${x}</p></div></div>`;
+  const body = `
+  <header class="ld-top"><nav class="ld-links" aria-label="Secciones"><a href="#ld-como" data-act="scrollto" data-to="ld-como">Cómo funciona</a><a href="#ld-pas" data-act="scrollto" data-to="ld-pas">Pasaporte Hogar</a><a href="#ld-prop" data-act="scrollto" data-to="ld-prop">Propietarios</a><a href="#ld-faq" data-act="scrollto" data-to="ld-faq">Preguntas</a></nav><div class="ld-acts">${btn('Ingresar','go',{kind:'sec',sm:true,d:{to:'a2'}})}${btn('Crear cuenta','start:t',{sm:true})}</div></header>
+  <section class="ld-hero"><div class="ld-wrap ld-herogrid">
+    <div class="ld-copy"><span class="ld-eyebrow">${ic('shield')}Alquilar con confianza, de los dos lados</span>
+      <h1 class="display-lg ld-h1">Armá tu Pasaporte una vez. Postulate a todo.</h1>
+      <p class="ld-lead">Hogar lee tus documentos, calcula un puntaje que se explica y lo comparte solo con los propietarios a los que te postulás. Ellos ven candidatos ordenados y verificados, sin planillas ni idas y vueltas.</p>
+      <div class="ld-cta">${btn('Armar mi Pasaporte','start:t',{})}${btn('Soy propietario o inmobiliaria','start:o',{kind:'sec'})}</div>
+      <ul class="ld-ticks"><li>${ic('check')}Sin costo en el piloto</li><li>${ic('check')}No guardamos tus documentos</li><li>${ic('check')}Tu Pasaporte nunca se rechaza</li></ul></div>
+    <div class="ld-art"><div class="ld-pic">${heroArt()}</div>
+      <div class="ld-chip ld-chip--a"><span class="h-tick">${ic('check')}</span><div><b>Ingreso verificado</b><span>Leído de tu recibo</span></div></div>
+      <div class="ld-chip ld-chip--b">${ring(74,52,true)}<div><b>Score 74</b><span>Te explicamos por qué</span></div></div>
+      <label class="ld-photo h-filebtn">${ic('plus')}<span>Poner foto real</span><input class="vh" type="file" accept="image/*" data-bind="photo" data-id="hero"></label></div>
+  </div></section>
+  <section class="ld-sec" id="ld-como"><div class="ld-wrap"><p class="ld-kicker">Cómo funciona</p><h2 class="display-md">De la cuenta a la postulación, en cuatro pasos</h2>
+    <div class="ld-grid4">${step(1,'Creá tu cuenta','Con tu email. Elegís si buscás alquilar, sos propietario o inmobiliaria.')}${step(2,'Subí tus documentos','Leemos DNI y comprobante de ingresos, y borramos los archivos al terminar.')}${step(3,'Mirá tu score','Un puntaje del 0 al 100 con cada factor explicado. Si falta algo, te decimos qué suma.')}${step(4,'Postulate','Enviás tu Pasaporte a las propiedades que te gustan. El propietario ve datos, no documentos.')}</div></div></section>
+  <section class="ld-sec ld-alt" id="ld-pas"><div class="ld-wrap ld-split">
+    <div><p class="ld-kicker">Pasaporte Hogar</p><h2 class="display-md">Un puntaje que se entiende</h2><p class="ld-lead">No es una caja negra. Cada factor muestra cuánto suma y por qué, y es una guía: el propietario siempre decide.</p>
+      <div class="ld-feats">${feat('shield','Datos verificados','Lo que leemos de tus documentos queda marcado como verificado. Si lo editás, pasa a “No verificado”.')}${feat('eye','Vos controlás qué se ve','Solo los propietarios a los que te postulás ven tus datos, y nunca tus documentos.')}${feat('check','Nunca te rechazamos','Tu Pasaporte puede estar Incompleto, En revisión o Completo. Siempre podés mejorarlo.')}</div></div>
+    <div class="h-card ld-demo"><div class="h-row" style="flex-wrap:nowrap;gap:16px;align-items:center">${ring(74,96)}<div><div class="h-li__t">Lucía Benítez</div><div class="h-li__d">Pasaporte Completo</div><div class="h-row" style="margin-top:6px">${badge('Ingreso verificado','ok','check')}</div></div></div>
+      ${factor('Alquiler sobre ingreso',c.f1)}${factor('Comprobante de ingresos',c.f2)}${factor('Antigüedad laboral',c.f3)}<p class="h-help">Ejemplo ilustrativo con datos de demo.</p></div>
+  </div></section>
+  <section class="ld-sec" id="ld-prop"><div class="ld-wrap ld-split ld-split--rev">
+    <div class="ld-pic ld-pic--sq">${ART.owner}</div>
+    <div><p class="ld-kicker">Para propietarios e inmobiliarias</p><h2 class="display-md">Candidatos ordenados, listos para decidir</h2><p class="ld-lead">Publicá tus propiedades y recibí las postulaciones ya rankeadas, con los datos que importan y las señales claras de qué está verificado.</p>
+      <div class="ld-feats">${feat('building','Publicá y administrá','Cargá propiedades con fotos y seguí el estado de cada una desde un panel.')}${feat('users','Equipo con permisos','Sumá agentes y definí quién publica, quién ve candidatos y quién cierra.')}${feat('chart','Cobrás menos fricción','En el piloto no se cobra. Más adelante, un canon por cierre real.')}</div></div>
+  </div></section>
+  <section class="ld-sec ld-alt"><div class="ld-wrap"><p class="ld-kicker">Propiedades de ejemplo</p><h2 class="display-md">Encontrá dónde vivir</h2>
+    <div class="ld-grid3">${demoProps.map(pr=>`<button class="h-prop h-plain h-card-btn" data-act="start:t">${photo(pr.id)}<div class="h-col" style="gap:6px"><div class="h-price">${money(pr.price)}<small> /mes</small></div><div class="h-li__t">${pr.title}</div><div class="h-meta"><span>${ic('pin')}${pr.zone}</span>${pr.feats.map(f=>`<span>${f}</span>`).join('')}</div></div></button>`).join('')}</div></div></section>
+  <section class="ld-sec" id="ld-faq"><div class="ld-wrap ld-narrow"><p class="ld-kicker">Preguntas frecuentes</p><h2 class="display-md">Lo que más nos preguntan</h2>
+    ${[['¿Guardan mis documentos?','No. Leemos los datos y borramos la foto o el PDF apenas terminamos. Guardamos solo los datos, un hash y la fecha.'],['¿Qué pasa si mi puntaje es bajo?','Nada se rechaza. El score es una guía y te mostramos qué factores podés mejorar, por ejemplo subiendo un comprobante.'],['¿Quién ve mi información?','Solo los propietarios o inmobiliarias a los que te postulás, y solo los datos, nunca los documentos.'],['¿Cuánto cuesta?','En esta etapa de piloto no se cobra. Más adelante, el canon es por cierre real y lo paga el propietario o la inmobiliaria.']].map(([q,x])=>`<details class="ld-q"><summary>${q}${ic('chev')}</summary><p class="body-sm ld-mut">${x}</p></details>`).join('')}</div></section>
+  <section class="ld-band"><div class="ld-wrap ld-split"><div><h2 class="display-md">Empezá hoy con tu Pasaporte</h2><p class="ld-lead">Llevás tus datos listos, verificados y bajo tu control. Tarda unos minutos.</p><div class="ld-cta">${btn('Crear cuenta','start:t',{})}${btn('Ya tengo cuenta','go',{kind:'sec',d:{to:'a2'}})}</div></div><div class="ld-pic ld-pic--sq">${ART.family}</div></div></section>
+  <footer class="ld-foot"><div class="ld-wrap"><nav aria-label="Legales"><a href="#" data-act="noop">Términos</a><a href="#" data-act="noop">Privacidad</a><a href="#" data-act="noop">Contacto</a></nav><span class="caption ld-mut">Demo con datos de ejemplo.</span></div></footer>`;
+  return {landing:true,id:'L1',title:'Inicio',cus:'Landing pública',body};
+};
+
+/* acceso */
+sc['a1'] = () => ({id:'A1',title:'Crear cuenta',cus:'CU-01 · CU-04',top:'none',
+  body:`<div class="h-col" style="gap:4px"><h1 class="display-sm">Creá tu cuenta</h1><p class="h-help">Elegí cómo vas a usar Hogar. Es una demo: no se guarda nada.</p></div>`
+   + choice('Busco alquilar','Armás tu Pasaporte Hogar y te postulás.',S.rolePick==='t','pick:t')
+   + choice('Soy propietario','Publicás y recibís candidatos ordenados.',S.rolePick==='o','pick:o')
+   + choice('Soy inmobiliaria','Equipo con agentes y permisos.',S.rolePick==='i','pick:i')
+   + field('Email','<div class="h-input"><span>lucia@email.com</span></div>')
+   + field('Contraseña','<div class="h-input"><span>••••••••••</span></div>')
+   + check('Acepto los <a href="#" data-act="noop">términos</a> y la <a href="#" data-act="noop">política de privacidad</a>',S.terms,'terms'),
+  cta:btn('Crear cuenta','a1next',{block:true,disabled:!S.terms}) + `<p class="h-help" style="text-align:center">¿Ya tenés cuenta? <a href="#" data-act="go" data-to="a2">Ingresá</a></p>`});
+sc['a2'] = () => ({id:'A2',title:'Ingresar',cus:'CU-02',back:'a1',
+  body:`<h1 class="display-sm">Ingresá a tu cuenta</h1>` + banner('info','Falta verificar tu email','Te mandamos un link a lu***@email.com.') + field('Email','<div class="h-input"><span>lucia@email.com</span></div>') + field('Contraseña','<div class="h-input"><span>••••••••••</span></div>','<a href="#" data-act="noop">Olvidé mi contraseña</a>'),
+  cta:btn('Ingresar','enterT',{block:true})});
+sc['a3'] = () => ({id:'A3',title:'Tus datos',cus:'CU-04 · obligatorio antes de cargar datos',back:'a1',
+  body:`<div class="h-tick" style="width:48px;height:48px">${ic('shield')}</div><h1 class="display-sm">Antes de empezar, tus datos</h1><div class="h-card h-card--flat">`
+   + [['check','Qué guardamos','Los datos que leemos de tus documentos: nombre, DNI e ingreso neto.'],['x','Qué no guardamos','Las fotos o PDF originales. Los borramos apenas leemos los datos.'],['eye','Quién los ve','Solo los propietarios a los que te postulás, y solo los datos.'],['edit','Tus derechos','Ver, corregir y eliminar tus datos cuando quieras.']].map(([i,t,d])=>`<div class="h-li"><span class="h-tick">${ic(i)}</span><div class="h-li__b"><div class="h-li__t">${t}</div><div class="h-li__d">${d}</div></div></div>`).join('')
+   + `</div>` + check('Doy mi consentimiento para que Hogar trate mis datos personales como se explica acá.',S.consent,'consent'),
+  cta:btn('Aceptar y continuar','a3next',{block:true,disabled:!S.consent})});
+
+/* inquilino */
+sc['t-pas'] = () => { const c = calc(S.p), st = pstatus(S.p), p = S.p;
+  const stB = st==='complete'?badge('Completo','ok','check'):st==='reviewing'?badge('En revisión','info','clock'):badge('Incompleto','warn','clock');
+  const row = (ok,t,d,right,act) => `<div class="h-li"><span class="h-tick ${ok?'':'h-tick--warn'}">${ic(ok?'check':'upload')}</span><div class="h-li__b"><div class="h-li__t">${t}</div><div class="h-li__d">${d}</div></div>${right}</div>`;
+  return {id:'I1',title:'Mi Pasaporte Hogar',cus:'CU-05 · 11 · 13 · 14',nav:'t',
+   body:`<div class="h-card"><div class="h-row" style="flex-wrap:nowrap;gap:16px">${ring(c.total)}<div class="h-col" style="gap:8px">${stB}<p class="body-sm">${p.proof?'Tu score hoy.':'Tu score hoy. Sin comprobante de ingresos es menor.'}</p><button class="h-link h-plain" data-act="go" data-to="t-score">Ver detalle del score</button></div></div></div>`
+   + (p.proof ? '' : banner('warn','Subí tu comprobante','Con recibo de sueldo o factura de monotributo, tu score mejora. Podés postularte igual.'))
+   + section('Tu progreso') + `<div class="h-card h-card--flat">`
+   + row(true,'Presupuesto',`Hasta ${money(p.budget)} por mes`,`<button class="h-plain" data-act="go" data-to="t-w1" aria-label="Editar presupuesto">${ic('chev')}</button>`)
+   + row(true,'DNI','Datos leídos y confirmados',badge('Verificado','ok'))
+   + row(p.proof,'Comprobante de ingresos',p.proof?(p.incomeEdited?'Ingreso corregido':'Leído y verificado'):'Pendiente',p.proof?badge(p.incomeEdited?'No verificado':'Verificado',p.incomeEdited?'warn':'ok'):btn('Subir','go',{kind:'secondary',sm:true,d:{to:'t-w2'}}))
+   + row(true,'Antigüedad laboral',`${p.seniority} ${p.seniority===1?'año':'años'} · declarada`,`<button class="h-plain" data-act="go" data-to="t-w1" aria-label="Editar">${ic('chev')}</button>`)
+   + row(p.guarantee,'Garantía',p.guarantee?'Declarás tener garantía':'No declarada',`<button class="h-plain" data-act="go" data-to="t-w1" aria-label="Editar">${ic('chev')}</button>`) + `</div>`
+   + (S.apps.length===0 ? `<p class="h-help">Probá: subí un comprobante, buscá un depto y postulate. Después cambiá a “Propietario” para ver tu postulación.</p>` : '')};
+};
+sc['t-w1'] = () => { const p = S.p; return {id:'I2',title:'Presupuesto y trabajo',cus:'CU-05 · 13 · 15',back:'t-pas',
+  body: steps(1,4,'Presupuesto y trabajo')
+   + field('¿Cuánto podés pagar por mes?',`<div class="h-input"><span class="h-pre">$</span><input id="budget" class="h-bare" inputmode="numeric" value="${String(p.budget).replace(/\B(?=(\d{3})+(?!\d))/g,'.')}" data-bind="budget" aria-label="Presupuesto mensual"></div>`,'Es lo que vas a ver filtrado cuando busques.')
+   + `<div class="h-col" style="gap:8px"><span class="h-field__label">¿Tenés comprobante de ingresos?</span>${choice('Sí, tengo','Recibo de sueldo o factura de monotributo.',p.declared,'decl:1')}${choice('Por ahora no','Podés seguir y sumarlo después.',!p.declared,'decl:0')}</div>`
+   + (p.declared ? '' : banner('warn','Tu score va a ser menor','Sin comprobante sumás menos puntos. No te bloquea: podés postularte y subirlo cuando quieras.'))
+   + field('Antigüedad laboral',`<div class="h-input"><select id="sen" class="h-bare" data-bind="sen" aria-label="Antigüedad laboral">${[0,1,2,3,4,5,6,8,10].map(n=>`<option value="${n}" ${n===p.seniority?'selected':''}>${n===0?'Menos de 1 año':n===1?'1 año':n+' años'}</option>`).join('')}</select></div>`)
+   + check('Tengo garantía',p.guarantee,'guar') + `<p class="h-help" style="margin:-8px 0 0 34px">La inmobiliaria revisa qué tipo de garantía es, fuera de Hogar.</p>`,
+  cta:btn('Continuar','go',{block:true,d:{to:'t-w2'}})}; };
+sc['t-w2'] = () => { const p = S.p;
+  let comp;
+  if (p.processing) comp = `<div class="h-file"><span class="h-file__i"><span class="h-spin"></span></span><div class="h-file__b"><div class="h-file__t">Leyendo documento…</div><div class="h-file__d">Extrayendo datos y calculando tu score</div></div>${badge('En revisión','info','clock')}</div>`;
+  else if (p.proof) comp = `<div class="h-file"><span class="h-file__i">${ic('file')}</span><div class="h-file__b"><div class="h-file__t">${p.type==='Monotributo'?'factura_monotributo.pdf':'recibo_octubre.pdf'}</div><div class="h-file__d">Leído · se borró el archivo</div></div>${badge('Confianza media','info','info')}</div>`;
+  else if (p.error) comp = `<div class="h-file h-file--error"><span class="h-file__i">${ic('alert')}</span><div class="h-file__b"><div class="h-file__t">recibo_otra_persona.pdf</div><div class="h-file__d" style="color:var(--danger-ink)">Está a nombre de otra persona. Tiene que coincidir con el titular del DNI.</div></div></div>`;
+  else comp = '';
+  return {id:'I3',title:'Subir documentos',cus:'CU-06 · 07 · 08 · 10',back:'t-w1',
+  body: steps(2,4,'Documentos')
+   + `<div class="h-file"><span class="h-file__i">${ic('file')}</span><div class="h-file__b"><div class="h-file__t">DNI frente y dorso</div><div class="h-file__d">Leído hace un momento</div></div>${badge('Confianza alta','ok','check')}</div>`
+   + section('Comprobante de ingresos')
+   + `<div class="h-chips">${['Recibo de sueldo','Monotributo'].map(t=>`<button class="h-chip h-plain${p.type===t?' h-chip--on':''}" data-act="ctype" data-v="${t}">${t}</button>`).join('')}</div>` + comp
+   + (p.proof || p.processing ? '' : `<div class="h-drop">${ic('upload')}<div class="label">Subí tu comprobante</div><div class="h-help">En esta demo elegí un archivo de ejemplo:</div><div class="h-col" style="width:100%;gap:8px">${btn('Recibo a mi nombre','upload',{kind:'secondary',block:true,d:{ok:'1'}})}${btn('Recibo de otra persona','upload',{kind:'secondary',block:true,d:{ok:'0'}})}</div></div>`)
+   + banner('info','Leemos los datos y borramos el archivo','No guardamos tu documento. Guardamos solo los datos, la fecha y qué tan segura fue la lectura.','shield'),
+  cta: btn('Continuar','go',{block:true,disabled:!p.proof,d:{to:'t-w3'}}) + (p.proof?'':btn('Seguir sin comprobante','skip',{kind:'ghost',block:true}))}; };
+sc['t-w3'] = () => { const p = S.p; const d = (k,v,r) => `<div class="h-datarow"><span class="h-datarow__k">${k}</span><span class="h-datarow__v">${v}${r||''}</span></div>`;
+  return {id:'I4',title:'Revisá tus datos',cus:'CU-09 · 12',back:'t-w2',
+  body: steps(3,4,'Revisión') + `<p class="body-sm">Esto fue lo que leímos. Confirmalo o corregilo.</p><div class="h-card h-card--flat">`
+   + d('Nombre','Lucía Benítez',badge('Verificado','ok','check')) + d('DNI','38.412.907',badge('Verificado','ok','check'))
+   + (p.editing ? `<div class="h-datarow"><span class="h-datarow__k">Ingreso neto</span><span class="h-datarow__v"><span class="h-input" style="min-height:40px;width:160px"><span class="h-pre">$</span><input id="inc" class="h-bare" inputmode="numeric" value="${String(p.incomeNet).replace(/\B(?=(\d{3})+(?!\d))/g,'.')}" data-bind="income" aria-label="Ingreso neto"></span><button class="h-link h-plain" data-act="editIncome">Listo</button></span></div>`
+       : d('Ingreso neto',money(p.incomeNet), (p.incomeEdited?badge('No verificado','warn','alert'):badge('Confianza media','info','info')) + `<button class="h-link h-plain" data-act="editIncome">Corregir</button>`))
+   + d('Antigüedad',`${p.seniority} ${p.seniority===1?'año':'años'}`,badge('Declarada','neutral')) + `</div>`
+   + (p.incomeEdited ? banner('warn','Editaste un dato','El ingreso quedó como “No verificado” hasta que subas un comprobante que coincida. Los propietarios lo ven así y tu score baja.') : '')
+   + `<p class="h-help">Al confirmar se recalcula tu score.</p>`,
+  cta:btn('Confirmar y ver mi score','confirm',{block:true})}; };
+sc['t-score'] = () => { const p = S.p, c = calc(p), st = pstatus(p);
+  const tips = []; if(!p.proof) tips.push(['upload','Subí un recibo de sueldo o factura de monotributo: es lo que más suma.']);
+  if(p.proof && p.incomeEdited) tips.push(['upload','Subí un comprobante que respalde el ingreso que corregiste.']);
+  if(c.ratio && c.ratio>.4) tips.push(['edit','Un presupuesto más bajo mejora la relación alquiler / ingreso.']);
+  if(!p.guarantee) tips.push(['shield','Si tenés garantía, marcala: suma al score.']);
+  if(p.seniority<5) tips.push(['clock','La antigüedad laboral suma hasta los 5 años.']);
+  tips.push(['clock','Cuando pagues en término tus alquileres, tu historial se suma al score (próximamente).']);
+  return {id:'I5',title:'Mi score',cus:'CU-11 · 12 · 14',nav:'t',
+  body:`<div class="h-card h-col" style="align-items:center;text-align:center;gap:8px">${ring(c.total,132)}${st==='complete'?badge('Completo','ok','check'):badge('Incompleto','warn','clock')}<p class="body-sm">Es una guía. Cada propietario decide.</p></div>`
+   + `<div class="h-card" style="padding-top:4px;padding-bottom:4px">${factor('Alquiler sobre ingreso',c.f1)}${factor('Comprobante de ingresos',c.f2)}${factor('Antigüedad laboral',c.f3)}${factor('Garantía',c.f4)}</div>`
+   + section('Qué lo mejoraría') + tips.map(([i,t])=>`<div class="h-tip">${ic(i)}<span>${t}</span></div>`).join('')
+   + `<div class="h-row">${btn('Editar mis datos','go',{kind:'secondary',d:{to:'t-w1'}})}</div>`}; };
+sc['t-buscar'] = () => { const list = S.props.filter(x=>x.status==='active' && (!S.filterBudget || x.price<=S.p.budget));
+  return {wide:true,id:'I6',title:'Buscar',cus:'CU-20',nav:'t',top:'logo',
+  body:`<div class="h-input">${ic('search')}<span class="h-help">Zona, barrio o dirección</span></div><div class="h-chips"><button class="h-chip h-plain${S.filterBudget?' h-chip--on':''}" data-act="fb">${S.filterBudget?ic('check'):''}Hasta ${money(S.p.budget)} · tu presupuesto</button></div>`
+   + `<p class="h-help">${list.length} ${list.length===1?'propiedad':'propiedades'}${S.filterBudget?' dentro de tu presupuesto':''}${S.filterBudget?` · <button class="h-link h-plain" data-act="fb">ver todas</button>`:''}</p>`
+   + (list.length ? list.map(x=>propCard(x)).join('') : banner('info','Nada dentro de tu presupuesto','Probá subir el presupuesto en tu Pasaporte o ver todas las propiedades.'))}; };
+sc['t-prop'] = () => { const pr = S.props.find(x=>x.id===S.curPropT); const app = S.apps.find(a=>a.pid===pr.id && a.status!=='withdrawn'); const c = calc(S.p); const inB = pr.price<=S.p.budget;
+  const d = (k,v) => `<div class="h-datarow"><span class="h-datarow__k">${k}</span><span class="h-datarow__v">${v}</span></div>`;
+  return {id:'I7',title:'Detalle de propiedad',cus:'CU-21',back:'t-buscar',
+  body:`<div class="h-photo" style="aspect-ratio:4/3">${scene(pr.id)}</div><div class="h-col" style="gap:6px"><div class="h-row" style="justify-content:space-between;flex-wrap:nowrap"><div class="h-price" style="font-size:24px;line-height:32px">${money(pr.price)}<small> /mes</small></div>${inB?badge('En tu presupuesto','ok'):badge('Sobre tu presupuesto','warn','alert')}</div><div class="h-li__t">${pr.title}</div><div class="h-meta"><span>${ic('pin')}${pr.zone}</span>${pr.feats.map(f=>`<span>${f}</span>`).join('')}</div></div><p class="body-sm">${pr.desc}</p>`
+   + `<div class="h-card h-card--flat">${d('Contrato',pr.contract)}${d('Expensas',pr.exp?money(pr.exp):'Sin expensas')}${d('Mascotas',pr.pets)}${d('Garantía','Requerida')}</div>`
+   + banner('info','Compartís tus datos, no tus documentos','El propietario ve tu score y los datos de tu Pasaporte.','shield'),
+  cta: app ? btn('Ya te postulaste · ver estado','tab',{block:true,kind:'secondary',d:{to:'t-post'}}) : btn('Postularme con mi Pasaporte','apply',{block:true,icon:'check'}) + `<p class="h-help" style="text-align:center">Tu score: ${c.total} · Pasaporte ${pstatus(S.p)==='complete'?'Completo':'Incompleto'}</p>`}; };
+sc['t-post'] = () => { const act = S.apps.filter(a=>a.status==='sent'||a.status==='selected'), cl = S.apps.filter(a=>a.status==='discarded'||a.status==='withdrawn');
+  const list = S.postTab==='act'?act:cl; const lb = {sent:badge('Enviada','info','clock'),selected:badge('Seleccionado','ok','check'),discarded:badge('No seleccionado','neutral'),withdrawn:badge('Retirada','neutral')};
+  return {wide:true,id:'I8',title:'Mis postulaciones',cus:'CU-22 · 23',nav:'t',
+  body:`<div class="h-seg"><button class="h-plain ${S.postTab==='act'?'on':''}" data-act="ptab" data-v="act">Activas</button><button class="h-plain ${S.postTab==='cl'?'on':''}" data-act="ptab" data-v="cl">Cerradas</button></div>`
+   + (list.length ? list.map(a=>{const pr=S.props.find(x=>x.id===a.pid); return `<div class="h-col" style="gap:8px">${rowProp(pr,a.status==='sent'?'Enviada hoy':a.status==='selected'?'Hoy':'Cerrada',lb[a.status])}${a.status==='selected'?banner('ok','La inmobiliaria te seleccionó','Te van a contactar para los próximos pasos.'):''}${a.status==='sent'?`<div class="h-row" style="justify-content:flex-end">${btn('Retirar postulación','withdraw',{kind:'ghost',sm:true,d:{id:a.pid}})}</div>`:''}</div>`;}).join('')
+      : `<div class="h-card h-col" style="align-items:center;text-align:center;gap:8px"><div class="h-tick" style="width:44px;height:44px">${ic('file')}</div><div class="h-li__t">${S.postTab==='act'?'Todavía no te postulaste':'No hay postulaciones cerradas'}</div>${S.postTab==='act'?`<p class="body-sm">Buscá una propiedad dentro de tu presupuesto y postulate con tu Pasaporte.</p>${btn('Buscar propiedades','tab',{d:{to:'t-buscar'}})}`:''}</div>`)};};
+sc['t-cuenta'] = () => ({id:'I9',title:'Cuenta y privacidad',cus:'CU-16 (deseable)',nav:'t',
+  body:`<div class="h-row" style="flex-wrap:nowrap;gap:12px"><span class="h-avatar" style="width:56px;height:56px">LB</span><div><div class="h-li__t">Lucía Benítez</div><div class="h-li__d">lucia@email.com</div></div></div>`
+   + `<div class="h-card h-card--flat"><div class="h-li"><div class="h-li__b"><div class="h-li__t">Mis datos y consentimiento</div></div>${ic('chev')}</div><div class="h-li"><div class="h-li__b"><div class="h-li__t">Cambiar contraseña</div></div>${ic('chev')}</div><button class="h-li h-plain" style="width:100%" data-act="go" data-to="a1"><div class="h-li__b" style="text-align:left"><div class="h-li__t">Cerrar sesión</div></div>${ic('logout')}</button></div>`
+   + section('Zona de cuidado') + `<div class="h-card h-col"><div class="h-li__t">Eliminar mi cuenta y mis datos</div><p class="body-sm">Borramos tu Pasaporte, tus datos y tus postulaciones. No se puede deshacer.</p>${btn('Eliminar mi cuenta','sheet',{kind:'danger',block:true,icon:'trash',d:{v:'del'}})}</div>`});
+
+/* propietario */
+sc['o-panel'] = () => { const act = S.props.filter(x=>x.status==='active').length; let nuevos=0,pre=0; Object.keys(S.cands).forEach(k=>candList(+k).forEach(c=>{if(c.status==='new'){nuevos++; if(preq(c))pre++;}}));
+  return {wide:true,id:'P1',title:'Panel',cus:'CU-24 · 28',nav:'o',top:'logoO',
+  body:`<div class="h-grid2"><div class="h-stat"><span class="h-stat__k">Propiedades activas</span><span class="h-stat__v">${act}</span></div><div class="h-stat"><span class="h-stat__k">Postulantes nuevos</span><span class="h-stat__v">${nuevos}</span></div><div class="h-stat"><span class="h-stat__k">Precalificados</span><span class="h-stat__v">${pre}</span></div><div class="h-stat"><span class="h-stat__k">Cierres, 12 meses</span><span class="h-stat__v">${closingsOf(OWNER_AGENCY,365)}</span></div></div>`
+   + section('Para revisar') + S.props.filter(x=>x.status==='active').map(x=>{const l=candList(x.id).filter(c=>c.status==='new'); return rowProp(x,l.length?`${l.length} postulantes nuevos`:'Sin postulantes',l.length?badge(`${l.filter(preq).length} precalif.`,'ok'):badge('Activa','neutral'),'ocands');}).join('')}; };
+sc['o-props'] = () => { const segs=[['all','Todas'],['active','Activas'],['paused','Pausadas']]; const list=S.props.filter(x=>S.ownerSeg==='all'||x.status===S.ownerSeg);
+  const sb = {active:badge('Activa','ok'),paused:badge('Pausada','warn','pause'),rented:badge('Alquilada','info','check')};
+  return {wide:true,id:'P2',title:'Propiedades',cus:'CU-18 · 19',nav:'o',top:'propsTop',
+  body:`<div class="h-seg">${segs.map(([k,l])=>`<button class="h-plain ${S.ownerSeg===k?'on':''}" data-act="oseg" data-v="${k}">${l}</button>`).join('')}</div>`
+   + list.map(x=>`<div class="h-prop"><button class="h-plain h-card-btn" style="display:flex;flex-direction:column;gap:12px" data-act="ocands" data-id="${x.id}" aria-label="Ver candidatos de ${esc(x.title)}">${photo(x.id)}<div class="h-col" style="gap:6px"><div class="h-row" style="justify-content:space-between;flex-wrap:nowrap"><div class="h-price">${money(x.price)}<small> /mes</small></div>${sb[x.status]}</div><div class="h-li__t">${x.title}</div><div class="h-li__d">${x.zone} · ${x.agent?'Agente: '+x.agent:'Sin agente asignado'}</div></div></button><div class="h-row" style="justify-content:space-between;gap:4px"><label class="h-btn h-btn--secondary h-btn--sm h-filebtn">${ic('image')}${PHOTOS[x.id]?'Cambiar foto':'Poner foto real'}<input class="vh" type="file" accept="image/*" data-bind="photo" data-id="${x.id}" aria-label="Elegir foto de la propiedad"></label>${x.status!=='rented'?btn(x.status==='paused'?'Reanudar':'Pausar','pausep',{kind:'ghost',sm:true,d:{id:x.id}}):''}</div></div>`).join('')}; };
+sc['o-new'] = () => { const f=S.newForm; return {id:'P3',title:'Nueva propiedad',cus:'CU-17 · 19',back:'o-props',
+  body: steps(2,4,'Condiciones y valor')
+   + field('Título',`<div class="h-input"><input id="nt" class="h-bare" placeholder="Ej: Depto 1 dormitorio" value="${esc(f.title)}" data-bind="nt" aria-label="Título"></div>`)
+   + field('Zona',`<div class="h-input"><input id="nz" class="h-bare" placeholder="Ej: Centro" value="${esc(f.zone)}" data-bind="nz" aria-label="Zona"></div>`)
+   + field('Valor mensual',`<div class="h-input"><span class="h-pre">$</span><input id="np" class="h-bare" inputmode="numeric" placeholder="780.000" value="${f.price}" data-bind="np" aria-label="Valor mensual"></div>`,'En pesos argentinos.')
+   + field('Agente a cargo',`<div class="h-input"><select id="na" class="h-bare" data-bind="na" aria-label="Agente">${['Marcos P.','Sofía R.'].map(a=>`<option ${a===f.agent?'selected':''}>${a}</option>`).join('')}</select></div>`,'Solo ese agente la va a ver.')
+   + `<div class="h-col" style="gap:8px"><span class="h-field__label">Foto</span><div class="h-grid2"><div class="h-photo">${f.photo?`<img src="${f.photo}" alt="Vista previa" class="realph">`:SCENES[3]}</div><label class="h-drop h-filebtn" style="padding:8px">${ic('upload')}<span class="h-help">${f.photo?'Cambiar foto':'Subir foto'}</span><input class="vh" type="file" accept="image/*" data-bind="newphoto" aria-label="Subir foto de la propiedad"></label></div></div>`,
+  cta:btn('Publicar propiedad','publish',{block:true,disabled:!(f.title&&f.zone&&+String(f.price).replace(/\D/g,'')>0)})}; };
+sc['o-cands'] = () => { const pr=S.props.find(x=>x.id===S.curProp); let l=candList(pr.id); if(S.candFilter) l=l.filter(preq);
+  return {wide:true,id:'P4',title:'Candidatos',cus:'CU-24 · 25',back:'o-props',nav:'o',
+  body: rowProp(pr,pr.zone,pr.status==='rented'?badge('Alquilada','info','check'):'')
+   + `<div class="h-row" style="justify-content:space-between;flex-wrap:nowrap"><div class="h-row" style="flex-wrap:nowrap;gap:10px">${sw(S.candFilter,'cf')}<span class="label">Solo precalificados</span></div><span class="h-help">Mayor score</span></div>`
+   + (l.length ? l.map((c,i)=>`<button class="h-cand h-plain h-card-btn" data-act="opencand" data-id="${c.id}"><span class="h-cand__rank">${i+1}</span><span class="h-avatar">${c.name.split(' ').map(w=>w[0]).slice(0,2).join('')}</span><div class="h-cand__b"><div class="h-cand__t">${c.name}${c.me?' <span class="caption">(vos)</span>':''}</div><div class="h-cand__d">Postuló ${c.days}</div><div class="h-row" style="gap:4px 6px">${candBadges(c)}</div></div>${ring(c.score,48,true)}</button>`).join('')
+      : `<div class="h-card h-col" style="align-items:center;text-align:center;gap:8px"><div class="h-li__t">${S.candFilter?'Ningún candidato precalificado':'Todavía no hay postulantes'}</div><p class="body-sm">${S.candFilter?'Apagá el filtro para ver a todos los que se postularon.':'Cuando alguien se postule con su Pasaporte, aparece acá ordenado por score.'}</p></div>`)}; };
+sc['o-cand'] = () => { const pr=S.props.find(x=>x.id===S.curProp); const c=candList(pr.id).find(x=>x.id===S.curCand); const ratio=c.income?Math.round(pr.price/c.income*100):null;
+  const d=(k,v,r)=>`<div class="h-datarow"><span class="h-datarow__k">${k}</span><span class="h-datarow__v">${v}${r||''}</span></div>`;
+  const ini=c.name.split(' ').map(w=>w[0]).slice(0,2).join('');
+  let cta='';
+  if(c.status==='new') cta=btn('Seleccionar candidato','decide',{block:true,icon:'check',d:{v:'selected'}})+btn('Descartar','decide',{kind:'secondary',block:true,d:{v:'discarded'}});
+  else if(c.status==='selected') cta=pr.status!=='rented'?btn('Marcar como alquilado','sheet',{block:true,d:{v:'rent'}})+btn('Volver a candidatos','back',{kind:'secondary',block:true}):btn('Volver a candidatos','back',{kind:'secondary',block:true});
+  else cta=btn('Volver a candidatos','back',{kind:'secondary',block:true});
+  return {id:'P5',title:'Candidato',cus:'CU-26 · 27 · 28',back:'o-cands',
+  body:`<div class="h-card"><div class="h-row" style="flex-wrap:nowrap;gap:12px"><span class="h-avatar" style="width:56px;height:56px">${ini}</span><div class="h-li__b"><div class="h-li__t">${c.name}</div><div class="h-li__d">Postuló ${c.days} · ${c.proof?'Pasaporte Completo':'Pasaporte Incompleto'}</div></div>${ring(c.score,64,true)}</div><div class="h-row" style="margin-top:10px">${candBadges(c)}</div></div>`
+   + `<div class="h-card h-card--flat">${d('Ingreso neto',c.income?money(c.income):'No informado',c.income?(c.unv?badge('No verificado','warn','alert'):badge('Verificado','ok','check')):badge('Sin comprobante','warn','alert'))}${d('Alquiler sobre ingreso',ratio?ratio+'%':'—')}${d('Antigüedad laboral',`${c.sen} ${c.sen===1?'año':'años'}`,badge('Declarada','neutral'))}${d('Garantía','Declara tener',badge('A validar con la inmobiliaria','neutral'))}</div>`
+   + banner('info','Solo ves datos','Los documentos originales no se guardan: ni vos ni nosotros los tenemos.','shield'), cta}; };
+sc['o-equipo'] = () => { const pm=S.perms; return {id:'P7',title:'Equipo',cus:'CU-03 · 19 (solo inmobiliaria)',nav:'o',top:'equipoTop',
+  body:`<div class="h-card h-card--flat">${[['MP','Marcos P.','6 propiedades','Agente','neutral'],['SR','Sofía R.','2 propiedades','Agente','neutral'],['AD','Ana D.','Administradora','Admin','ok']].map(([i,n,d,r,k])=>`<div class="h-li"><span class="h-avatar">${i}</span><div class="h-li__b"><div class="h-li__t">${n}</div><div class="h-li__d">${d}</div></div>${badge(r,k)}</div>`).join('')}</div>`
+   + section('Permisos de Marcos P.') + `<div class="h-card h-col" style="gap:14px">${[['pub','Publicar propiedades'],['view','Ver candidatos'],['decide','Seleccionar y descartar'],['close','Marcar alquileres cerrados']].map(([k,l])=>`<div class="h-row" style="justify-content:space-between;flex-wrap:nowrap"><span class="body-sm">${l}</span>${sw(pm[k],'perm','data-k="'+k+'"')}</div>`).join('')}</div><p class="h-help">Un agente solo ve las propiedades que le asignaron.</p>`}; };
+
+/* admin */
+const ADM = [['a-met','chart','Métricas'],['a-cie','building','Cierres y canon'],['a-ocr','file','Auditoría OCR'],['a-inm','users','Inmobiliarias']];
+const canon = c => 20000*(1+0.02*Math.min(c,25));
+sc['a-met'] = () => { const m = S.metrics;
+  const vals = m.weeklySignups.slice(); vals[vals.length-1] += S.signups;   // los registros de la demo caen en la semana actual
+  const k = 125 / Math.max(...vals);
+  const bars=vals.map((v,i)=>`<rect x="${20+i*58}" y="${150-v*k}" width="38" height="${v*k}" rx="6" fill="var(--bamboo-600)"/><text x="${39+i*58}" y="170" text-anchor="middle" font-size="12" fill="var(--ink-muted)">S${i+1}</text><text x="${39+i*58}" y="${144-v*k}" text-anchor="middle" font-size="12" font-weight="600" fill="var(--ink)">${v}</text>`).join('');
+  const regs = vals.reduce((a,b)=>a+b,0);
+  const comp = m.passportsComplete + (pstatus(S.p)==='complete'?1:0), post = m.applications + S.apps.length;
+  const cie = closingsOf(null, 56);
+  return {id:'D1',title:'Métricas',cus:'CU-29',admin:true,
+  body:`<div class="h-row"><div class="h-input" style="width:190px;min-height:40px"><span>Últimas 8 semanas</span><span class="h-end">${ic('down')}</span></div><div class="h-input" style="width:210px;min-height:40px"><span>Todas las inmobiliarias</span><span class="h-end">${ic('down')}</span></div></div>`
+   + `<div class="h-grid4"><div class="h-stat"><span class="h-stat__k">Registros</span><span class="h-stat__v">${regs}</span><span class="h-stat__d">${Math.round(m.tenantShare*100)}% inquilinos</span></div><div class="h-stat"><span class="h-stat__k">Pasaportes completos</span><span class="h-stat__v">${comp}</span><span class="h-stat__d">${Math.round(comp/regs*100)}% de los registros</span></div><div class="h-stat"><span class="h-stat__k">Postulaciones</span><span class="h-stat__v">${post}</span><span class="h-stat__d">${(post/comp).toFixed(1).replace('.',',')} por pasaporte</span></div><div class="h-stat"><span class="h-stat__k">Cierres</span><span class="h-stat__v">${cie}</span><span class="h-stat__d">en el período</span></div></div>`
+   + `<div class="h-card"><div class="h-li__t" style="margin-bottom:8px">Registros por semana</div><svg viewBox="0 0 480 180" width="100%" role="img" aria-label="Registros por semana, de ${vals[0]} a ${vals[vals.length-1]}" style="font-family:var(--font-sans);max-height:210px">${bars}<path d="M12 150H470" stroke="var(--line-strong)"/></svg></div>`}; };
+sc['a-cie'] = () => { const rows = S.agencies.map(a=>({n:a.n, acc:closingsOf(a.n), c:closingsOf(a.n,365)})); const dc = demoClosings();
+  return {id:'D2',title:'Cierres y canon',cus:'CU-30',admin:true,
+  body: banner('info','Piloto sin cobro','El canon es una referencia: canon = $20.000 × (1 + 0,02 × cierres de 12 meses, hasta 25). El cobro arranca en Fase 2.')
+   + (dc?banner('ok','Cierre de la demo registrado',`${OWNER_AGENCY} sumó ${dc} ${dc===1?'cierre':'cierres'} desde el panel del propietario.`):'')
+   + `<div class="h-tablewrap"><div class="h-scrollx"><table class="h-table"><thead><tr><th>Inmobiliaria</th><th class="num">Cierres acumulados</th><th class="num">Últimos 12 meses</th><th class="num">Canon calculado</th><th>Estado</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.n}</td><td class="num">${r.acc}</td><td class="num">${r.c}</td><td class="num">${money(canon(r.c))}</td><td>${r.c>=25?badge('Tope +50%','earth'):badge('Piloto sin cobro','neutral')}</td></tr>`).join('')}</tbody></table></div></div>`}; };
+sc['a-ocr'] = () => { const rows = S.ocr.slice().sort((a,b)=>b.at-a.at);
+  const avg = Math.round(rows.reduce((s,r)=>s+r.conf,0)/rows.length), low = rows.filter(r=>r.conf<70).length;
+  const cnt = {}; let tot = 0; rows.forEach(r=>r.fixed.forEach(f=>{ cnt[f]=(cnt[f]||0)+1; tot++; }));
+  const top = Object.entries(cnt).sort((a,b)=>b[1]-a[1])[0];
+  const st = r => r.st==='rejected' ? badge('Titular no coincide','danger','alert') : r.conf<70 ? badge('Confianza baja','warn','alert') : badge('Ok','ok','check');
+  return {id:'D3',title:'Auditoría OCR',cus:'CU-31',admin:true,
+  body:`<div class="h-grid4" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))"><div class="h-stat"><span class="h-stat__k">Confianza promedio</span><span class="h-stat__v">${avg}%</span></div><div class="h-stat"><span class="h-stat__k">Documentos con confianza baja</span><span class="h-stat__v">${low}</span></div><div class="h-stat"><span class="h-stat__k">Campo más corregido</span><span class="h-stat__v" style="font-size:24px">${top?top[0]:'—'}</span><span class="h-stat__d">${top?Math.round(top[1]/tot*100)+'% de las correcciones':'Sin correcciones'}</span></div></div>`
+   + `<div class="h-tablewrap"><div class="h-scrollx"><table class="h-table"><thead><tr><th>Fecha</th><th>Documento</th><th class="num">Confianza</th><th class="num">Campos corregidos</th><th>Estado</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${fdate(r.at)}</td><td>${r.kind}${r.mine?' <span class="h-help">· Lucía (demo)</span>':''}</td><td class="num">${r.conf}%</td><td class="num" title="${esc(r.fixed.join(', '))}">${r.fixed.length}</td><td>${st(r)}</td></tr>`).join('')}</tbody></table></div></div>`}; };
+sc['a-inm'] = () => ({id:'D4',title:'Inmobiliarias piloto',cus:'CU-32 (deseable)',admin:true,
+  body:`<div class="h-tablewrap"><div class="h-scrollx"><table class="h-table"><thead><tr><th>Inmobiliaria</th><th>Administrador</th><th class="num">Agentes</th><th class="num">Propiedades</th><th>Estado</th><th></th></tr></thead><tbody>${S.agencies.map((a,i)=>`<tr><td>${a.n}</td><td>${a.a}</td><td class="num">${a.g}</td><td class="num">${a.p}</td><td>${badge(a.s,{Activa:'ok',Pausada:'warn',Baja:'neutral'}[a.s])}</td><td style="text-align:right">${btn(a.s==='Activa'?'Pausar':'Activar','agency',{kind:'secondary',sm:true,d:{i}})}</td></tr>`).join('')}</tbody></table></div></div>`});
+
+/* ---------- render ---------- */
+const ROLES = [['land','Inicio'],['reg','Registro'],['t','Inquilino'],['o','Propietario'],['adm','Admin CRM']];
+function topbar(d){
+  if (d.top==='none') return '';
+  if (d.top==='logo') return `<header class="h-top"><span class="h-top__t">${d.title}</span></header>`;
+  if (d.top==='logoO') return `<header class="h-top"><span class="h-top__t">${d.title}</span><span class="h-top__t" style="text-align:right;font-size:14px;color:var(--ink-muted)">Inmobiliaria Del Sur</span></header>`;
+  if (d.top==='propsTop') return `<header class="h-top"><span class="h-top__t">Propiedades</span>${btn('Publicar','go',{sm:true,icon:'plus',d:{to:'o-new'}})}</header>`;
+  if (d.top==='equipoTop') return `<header class="h-top"><span class="h-top__t">Equipo</span>${btn('Agregar','toast',{sm:true,icon:'plus',d:{v:'En la versión real se invita al agente por email.'}})}</header>`;
+  return `<header class="h-top">${d.back?`<button class="h-plain h-iconbtn" data-act="back" aria-label="Volver">${ic('back')}</button>`:''}<span class="h-top__t">${d.title}</span></header>`;
+}
+function sheetHtml(){
+  if(!S.sheet) return '';
+  const k=S.sheet;
+  const pr=S.props.find(x=>x.id===S.curProp);
+  const content = k==='rent' ? `<h2 class="title">¿Marcar como alquilado?</h2><p class="body-sm">${pr.title}. Se pausa la publicación y se registra el cierre.</p>${btn('Marcar como alquilado','rent',{block:true})}${btn('Cancelar','closeSheet',{kind:'ghost',block:true})}`
+    : `<h2 class="title">¿Eliminar tu cuenta?</h2><p class="body-sm">En esta demo se reinicia todo al estado inicial.</p>${btn('Sí, eliminar','reset',{kind:'danger',block:true})}${btn('Cancelar','closeSheet',{kind:'ghost',block:true})}`;
+  return `<div class="h-scrim" data-act="closeSheet"></div><div class="h-sheet" role="dialog" aria-modal="true"><span class="h-sheet__grab"></span>${content}</div>`;
+}
+/* ---------- persistencia: la partida queda guardada en este navegador ---------- */
+const STORE_KEY = 'hogar-demo-state-v' + SEED_VERSION;   // cambia con la semilla: datos viejos no se mezclan
+function saveState(){ try { localStorage.setItem(STORE_KEY, JSON.stringify({...S, toast:null, sheet:null})); } catch (e) {} }
+function clearSaved(){ try { localStorage.removeItem(STORE_KEY); } catch (e) {} }
+function loadSaved(){
+  try {
+    const raw = localStorage.getItem(STORE_KEY); if (!raw) return null;
+    const saved = JSON.parse(raw), base = fresh();
+    // se mezcla con fresh() para que un campo nuevo en la semilla no rompa partidas viejas
+    const s = {...base, ...saved, p:{...base.p, ...saved.p, processing:false, editing:false}, sheet:null, toast:null};
+    if (!sc[s.screen]) { s.role = 'land'; s.screen = 'l1'; s.hist = []; }
+    return s;
+  } catch (e) { return null; }
+}
+
+let lastScreen = null;
+function render(keepScroll=true){
+  const d = sc[S.screen]();
+  const y = window.scrollY; const same = keepScroll && lastScreen === S.screen; lastScreen = S.screen;
+  const role = S.role;
+  document.getElementById('tabs').innerHTML = ROLES.map(([k,l])=>`<button class="rtab${role===k?' on':''}" data-act="role" data-v="${k}" ${role===k?'aria-current="true"':''}>${l}</button>`).join('');
+  const dev = document.getElementById('device');
+  dev.className = 'device' + (d.admin?' wide':'');
+  const toastHtml = S.toast ? `<div class="toast" role="status">${S.toast}</div>` : '';
+  let inner;
+  if (d.landing) {
+    inner = d.body;
+  } else if (d.admin) {
+    inner = `<div class="adm"><aside class="h-sidenav">${ADM.map(([k,i,l])=>`<button class="h-plain navb ${S.screen===k?'on':''}" data-act="tab" data-to="${k}">${ic(i)}${l}</button>`).join('')}</aside><div class="appmain admmain"><header class="h-top"><span class="h-top__t">${d.title}</span></header><main class="admbody">${d.body}</main></div></div>`;
+  } else {
+    const dock = d.nav?nav(d.nav==='t'?NAV_T:NAV_O,S.screen):'';
+    const items = d.nav ? (d.nav==='t'?NAV_T:NAV_O) : null;
+    const side = items ? `<aside class="h-sidenav side">${items.map(([k,i,l])=>`<button class="h-plain navb ${((tabOf[S.screen]||S.screen)===k)?'on':''}" data-act="tab" data-to="${k}">${ic(i)}${l}</button>`).join('')}</aside>` : '';
+    inner = `<div class="app${items?' has-side':''}">${side}<div class="appmain">${topbar(d)}<main class="scroll"><div class="h-body" data-w="${d.wide?'wide':'narrow'}">${d.body}${d.cta?`<div class="h-cta h-cta--inline">${d.cta}</div>`:''}</div></main>${dock?`<div class="dock">${dock}</div>`:''}</div></div>`;
+  }
+  dev.innerHTML = inner + sheetHtml() + toastHtml;
+  window.scrollTo(0, same ? y : 0);
+  document.getElementById('cap').innerHTML = `<span class="id">${d.id}</span><span>${d.title}</span><span class="cu">${d.cus}</span>`;
+  saveState();
+}
+let toastT;
+function toast(t){ S.toast=t; clearTimeout(toastT); toastT=setTimeout(()=>{S.toast=null;render();},2600); }
+function go(to,push=true){ if(S.role==='land' && /^a\d/.test(to)) S.role='reg'; if(push) S.hist.push(S.screen); S.screen=to; S.sheet=null; render(false); }
+function enter(role,to){ S.role=role; S.screen=to; S.hist=[]; S.sheet=null; render(false); }
+
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-act]'); if(!el || el.disabled) return;
+  const a = el.dataset.act, v = el.dataset.v, id = el.dataset.id;
+  if (a==='noop'){ e.preventDefault(); return; }
+  if (a==='scrollto'){ e.preventDefault(); const t=document.getElementById(el.dataset.to); if(t) t.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'}); return; }
+  if (a.startsWith('start:')){ S.rolePick=a.split(':')[1]; enter('reg','a1'); return; }
+  if (a==='role'){ const m={land:'l1',reg:'a1',t:'t-pas',o:'o-panel',adm:'a-met'}; enter(v,m[v]); return; }
+  if (a==='go'){ e.preventDefault(); go(el.dataset.to); return; }
+  if (a==='back'){ const to=S.hist.pop()||sc[S.screen]().back; S.screen=to; S.sheet=null; render(false); return; }
+  if (a==='tab'){ S.hist=[]; if(el.dataset.to==='a1'){enter('reg','a1');return;} S.screen=el.dataset.to; S.sheet=null; render(false); return; }
+  if (a.startsWith('pick:')){ S.rolePick=a.split(':')[1]; render(); return; }
+  if (a==='terms'){ S.terms=!S.terms; render(); return; }
+  if (a==='consent'){ S.consent=!S.consent; render(); return; }
+  if (a==='a1next'){ go('a3'); return; }
+  if (a==='a3next'||a==='enterT'){ if(a==='a3next') S.signups++; if(S.rolePick==='t'||a==='enterT') enter('t','t-pas'); else enter('o','o-panel'); toast('Cuenta creada. Esto es una demo.'); return; }
+  if (a==='decl'||a.startsWith('decl:')){ S.p.declared = a==='decl:1'; render(); return; }
+  if (a==='guar'){ S.p.guarantee=!S.p.guarantee; render(); return; }
+  if (a==='ctype'){ S.p.type=v; render(); return; }
+  if (a==='upload'){ S.p.error=false; S.p.processing=true; render();
+    const ok=el.dataset.ok==='1'; setTimeout(()=>{ S.p.processing=false; S.ocr.push({at:Date.now(),kind:S.p.type,conf:ok?84:93,fixed:[],st:ok?'ok':'rejected',mine:true}); if(ok){S.myOcr=S.ocr.length-1;S.p.proof=true;S.p.incomeEdited=false;S.p.error=false;S.p.declared=true;toast('Comprobante leído y archivo borrado. Score recalculado.');} else {S.p.error=true;} render(); },1300); return; }
+  if (a==='skip'){ S.hist=[]; S.screen='t-pas'; toast('Podés subir el comprobante más tarde. Tu score es menor sin él.'); render(false); return; }
+  if (a==='editIncome'){ S.p.editing=!S.p.editing; render(); return; }
+  if (a==='confirm'){ go('t-score'); toast('Score recalculado.'); return; }
+  if (a==='fb'){ S.filterBudget=!S.filterBudget; render(); return; }
+  if (a==='openProp'){ S.curPropT=+id; go('t-prop'); return; }
+  if (a==='apply'){ S.apps.push({pid:S.curPropT,status:'sent'}); toast('Postulación enviada con tu Pasaporte.'); render(); return; }
+  if (a==='ptab'){ S.postTab=v; render(); return; }
+  if (a==='withdraw'){ const ap=S.apps.find(x=>x.pid===+id&&x.status==='sent'); if(ap) ap.status='withdrawn'; toast('Retiraste tu postulación.'); render(); return; }
+  if (a==='sheet'){ S.sheet=v; render(); return; }
+  if (a==='closeSheet'){ S.sheet=null; render(); return; }
+  if (a==='reset'){ clearSaved(); S=fresh(); enter('land','l1'); toast('Cuenta eliminada. Demo reiniciada.'); return; }
+  if (a==='toast'){ toast(v); return; }
+  /* owner */
+  if (a==='oseg'){ S.ownerSeg=v; render(); return; }
+  if (a==='ocands'){ S.curProp=+id; go('o-cands'); return; }
+  if (a==='pausep'){ const x=S.props.find(p=>p.id===+id); x.status=x.status==='paused'?'active':'paused'; toast(x.status==='paused'?'Publicación pausada.':'Publicación reanudada.'); render(); return; }
+  if (a==='cf'){ S.candFilter=!S.candFilter; render(); return; }
+  if (a==='opencand'){ S.curCand=id; go('o-cand'); return; }
+  if (a==='decide'){ const l=candList(S.curProp); const c=l.find(x=>x.id===S.curCand);
+    if (c.me){ const ap=S.apps.find(x=>x.pid===S.curProp&&x.status==='sent'); if(ap) ap.status=v; } else c.status=v;
+    toast(v==='selected'?'Candidato seleccionado.':'Candidato descartado.'); render(); return; }
+  if (a==='rent'){ const pr=S.props.find(x=>x.id===S.curProp); pr.status='rented'; S.closings.push({agency:OWNER_AGENCY,at:Date.now(),demo:true,pid:pr.id}); const l=candList(pr.id); const c=l.find(x=>x.id===S.curCand); if(c&&!c.me) c.status='rented'; S.sheet=null; toast('Alquiler cerrado. Se registró el cierre.'); render(); return; }
+  if (a==='publish'){ const f=S.newForm; const n=Math.max(...S.props.map(p=>p.id))+1; S.props.push({id:n,sc:0,title:f.title,zone:f.zone,price:+String(f.price).replace(/\D/g,''),feats:[],status:'active',agent:f.agent,desc:'Propiedad publicada desde la demo.',exp:0,pets:'—',contract:'24 meses'}); S.cands[n]=[]; if(f.photo){PHOTOS[n]=f.photo; if(!savePhotos()) toast('La foto se ve ahora, pero no entra en la memoria del navegador.');} S.newForm={title:'',zone:'',price:'',agent:'Marcos P.',photo:''}; S.hist=[]; S.screen='o-props'; toast('Propiedad publicada. Ya aparece en la búsqueda del inquilino.'); render(false); return; }
+  if (a==='perm'){ const k=el.dataset.k; S.perms[k]=!S.perms[k]; render(); return; }
+  if (a==='agency'){ const ag=S.agencies[+el.dataset.i]; ag.s=ag.s==='Activa'?'Pausada':'Activa'; render(); return; }
+});
+document.addEventListener('change', async e => {
+  const b = e.target.dataset && e.target.dataset.bind; if(!b) return;
+  if (b==='photo' || b==='newphoto') {
+    const file = e.target.files && e.target.files[0]; if(!file) return;
+    try { const url = await readPhoto(file);
+      if (b==='photo') { PHOTOS[e.target.dataset.id==='hero'?'hero':+e.target.dataset.id] = url; if(!savePhotos()) toast('La foto se ve ahora, pero no entra en la memoria del navegador.'); else toast('Foto actualizada. Ya se ve en la búsqueda del inquilino.'); }
+      else { S.newForm.photo = url; }
+    } catch (err) { toast('No pude leer esa imagen. Probá con un JPG o PNG.'); }
+    render(); return;
+  }
+  const num = s => parseInt(String(s).replace(/\D/g,''),10)||0;
+  if (b==='budget'){ S.p.budget = Math.max(100000, num(e.target.value)); }
+  if (b==='income'){ const n=num(e.target.value); if(n!==S.p.incomeNet){S.p.incomeNet=Math.max(1,n);S.p.incomeEdited=true; const r=S.ocr[S.myOcr]; if(r&&!r.fixed.includes('Ingreso neto')) r.fixed.push('Ingreso neto');} }
+  if (b==='sen'){ S.p.seniority=+e.target.value; }
+  if (b==='nt') S.newForm.title=e.target.value; if (b==='nz') S.newForm.zone=e.target.value; if (b==='np') S.newForm.price=e.target.value; if (b==='na') S.newForm.agent=e.target.value;
+  render();
+});
+document.getElementById('reset').addEventListener('click',()=>{ clearSaved(); S=fresh(); toast('Demo reiniciada con los datos de ejemplo.'); render(false); });
+const restored = loadSaved();
+if (restored) S = restored;
+try { render(false); } catch (e) { clearSaved(); S = fresh(); render(false); }   // partida guardada corrupta: arranca limpio
+if (restored && S.screen !== 'l1') { toast('Retomaste la demo donde la dejaste. “Reiniciar demo” vuelve al inicio.'); render(); }
+
+/* theme: arranca siempre en claro; el botón alterna */
+let theme = 'light';
+try { theme = localStorage.getItem('hogar-theme') || 'light'; } catch (e) {}
+const themeBtn = document.getElementById('theme');
+function applyTheme(){ document.documentElement.setAttribute('data-theme', theme); themeBtn.textContent = theme === 'dark' ? 'Tema oscuro' : 'Tema claro'; themeBtn.setAttribute('aria-pressed', theme === 'dark'); }
+themeBtn.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('hogar-theme', theme); } catch (e) {} applyTheme(); });
+applyTheme();
+
+</script>
